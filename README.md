@@ -8,7 +8,7 @@ Google map react componentize project
 - [x] GoogleMap
 - [x] Marker
 - [x] Custom Marker
-- [ ] Controls
+- [x] Controls
 - [ ] Polyline
 - [ ] Polygon
 - [ ] Rectangle

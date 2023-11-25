@@ -1,4 +1,5 @@
 import {
+  Control,
   Marker,
   CustomMarker,
   GoogleMap,
@@ -8,6 +9,7 @@ import {
   useCustomMarkerContext,
 } from './components';
 import type {
+  ControlProps,
   MarkerProps,
   CustomMarkerProps,
   GoogleMapProps,
@@ -22,6 +24,7 @@ import { ApiLoadConfig, LibraryMap, LibraryName } from './types';
 import { appendLibImportScriptOnce } from './utils/appendScript';
 
 export {
+  Control,
   Marker,
   CustomMarker,
   GoogleMap,
@@ -36,6 +39,7 @@ export {
 };
 
 export type {
+  ControlProps,
   MarkerProps,
   CustomMarkerProps,
   GoogleMapProps,
@@ -49,6 +53,7 @@ export type {
 };
 
 export default {
+  Control,
   Marker,
   CustomMarker,
   GoogleMap,

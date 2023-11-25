@@ -1,3 +1,5 @@
+export * from './Control/index';
+export * from './Control/type';
 export * from './CustomMarker/index';
 export * from './CustomMarker/type';
 export * from './Marker/index';
