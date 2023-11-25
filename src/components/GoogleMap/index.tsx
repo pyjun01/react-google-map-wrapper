@@ -5,10 +5,11 @@ import {
   useRef,
   useState,
 } from 'react';
-import { MapProvider } from '../Provider/MapProvider';
+
+import { MapEvent } from './type';
 import { useApplyMapOptions } from '../../../src/hooks/useApplyMapOptions';
 import { useApplyMapEvent } from '../../hooks/useApplyMapEvent';
-import { MapEvent } from './type';
+import { MapProvider } from '../Provider/MapProvider';
 
 export interface GoogleMapProps extends PropsWithChildren<MapEvent> {
   initialZoom?: google.maps.MapOptions['zoom'];

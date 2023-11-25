@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { MarkerEvent } from 'src/components/Marker/type';
+
+import { MarkerEvent } from '../components/Marker/type';
 
 export const useApplyMarkerEvent = (
   marker: google.maps.Marker | null,

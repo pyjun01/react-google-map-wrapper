@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { MapEvent } from 'src/components/GoogleMap/type';
+
+import { MapEvent } from '../components/GoogleMap/type';
 
 export const useApplyMapEvent = (
   map: google.maps.Map | null,

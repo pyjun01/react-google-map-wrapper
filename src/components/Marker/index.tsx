@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useMapContext } from '../Provider/MapProvider';
+
 import { MarkerProps } from './type';
 import { useApplyMarkerEvent } from '../../hooks/useApplyMarkerEvent';
+import { useMapContext } from '../Provider/MapProvider';
 
 export function Marker({
   lat,

@@ -1,7 +1,8 @@
 import { PropsWithChildren, useEffect } from 'react';
+
 import { LoadingStatus, coreStore, useCoreStore } from '../../store/core';
+import { ApiLoadConfig } from '../../types';
 import { appendLibImportScriptOnce } from '../../utils/appendScript';
-import { ApiLoadConfig } from 'src/types';
 
 export interface GoogleMapApiLoaderProps
   extends PropsWithChildren<ApiLoadConfig> {

@@ -1,8 +1,10 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
-import { useMapContext } from '../Provider/MapProvider';
+
 import { createPortal } from 'react-dom';
+
 import { OverlayMarker } from './type';
 import { CustomMarkerProvider } from '../Provider/CustomMarkerProvider';
+import { useMapContext } from '../Provider/MapProvider';
 
 let classCache;
 
@@ -113,10 +115,10 @@ export function CustomMarker({
             const origin = this.get('origin'),
               left = origin.clientX - e.clientX,
               top = origin.clientY - e.clientY,
-              pos = this.getProjection().fromLatLngToDivPixel(this.position);
+              pos = this.getProjection().fromLatLngToDivPixel(this.position)!;
 
             return this.getProjection().fromDivPixelToLatLng(
-              new google.maps.Point(pos!?.x - left, pos!?.y - top),
+              new google.maps.Point(pos.x - left, pos.y - top),
             )!;
           };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { LibraryMap, LibraryName } from 'src/types';
+
+import { LibraryMap, LibraryName } from '../types';
 
 export const useImportLibrary = <
   Name extends LibraryName,

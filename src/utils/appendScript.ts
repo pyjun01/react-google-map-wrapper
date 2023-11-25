@@ -1,4 +1,4 @@
-import { ApiLoadConfig } from 'src/types';
+import { ApiLoadConfig } from '../types';
 
 let isCalled = false;
 
