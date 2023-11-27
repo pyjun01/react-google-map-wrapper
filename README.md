@@ -9,12 +9,12 @@ Google map react componentize project
 - [x] Marker
 - [x] Custom Marker
 - [x] Controls
+- [x] InfoWindow
 - [ ] Polyline
 - [ ] Polygon
 - [ ] Rectangle
 - [ ] Circle
 - [ ] AdvancedMarkerView
-- [ ] InfoWindow
 - [ ] MarkerClusterer
 - [ ] HeatmapLayer
 
