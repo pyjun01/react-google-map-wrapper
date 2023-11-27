@@ -24,7 +24,7 @@ import type {
 import { useImportLibrary } from './hooks/useImportLibrary';
 import { LoadingStatus, useApiLoadingStatus } from './store/core';
 import { ApiLoadConfig, LibraryMap, LibraryName } from './types';
-import { appendLibImportScriptOnce } from './utils/appendScript';
+import { appendLibImportScript } from './utils/appendScript';
 
 export {
   Control,
@@ -39,7 +39,7 @@ export {
   useImportLibrary,
   LoadingStatus,
   useApiLoadingStatus,
-  appendLibImportScriptOnce,
+  appendLibImportScript,
 };
 
 export type {
@@ -71,5 +71,5 @@ export default {
   useImportLibrary,
   LoadingStatus,
   useApiLoadingStatus,
-  appendLibImportScriptOnce,
+  appendLibImportScript,
 };

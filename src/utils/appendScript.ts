@@ -2,7 +2,7 @@ import { ApiLoadConfig } from '../types';
 
 let isCalled = false;
 
-export const appendLibImportScriptOnce = ({
+export const appendLibImportScript = ({
   apiKey,
   v = 'weekly',
   libraries,

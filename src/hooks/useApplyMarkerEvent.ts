@@ -37,7 +37,7 @@ export const useApplyMarkerEvent = (
       const listener = marker.addListener(key, callback);
 
       return () => google.maps.event.removeListener(listener);
-    }, []);
+    }, [callback]);
 
   useEventEffect('animation_changed', onAnimationChanged);
   useEventEffect('click', onClick);
