@@ -1,12 +1,11 @@
 import { forwardRef, useEffect, useMemo, useState } from 'react';
 
-import { passRef } from '@@utils/passRef';
-
 import { AnchorContextData, AnchorProvider } from './Context';
 import { InfoWindowProps } from './type';
 import { useMapContext } from '../../components/Provider/MapProvider';
 import { useApplyInfoWindowEvent } from '../../hooks/useApplyInfoWindowEvent';
 import { useImportLibrary } from '../../hooks/useImportLibrary';
+import { passRef } from '../../utils/passRef';
 
 export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
   function InfoWindow(

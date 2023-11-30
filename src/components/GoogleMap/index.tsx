@@ -7,12 +7,11 @@ import {
   useState,
 } from 'react';
 
-import { passRef } from '@@utils/passRef';
-
 import { MapEvent } from './type';
 import { useApplyMapOptions } from '../../../src/hooks/useApplyMapOptions';
 import { useApplyMapEvent } from '../../hooks/useApplyMapEvent';
 import { useImportLibrary } from '../../hooks/useImportLibrary';
+import { passRef } from '../../utils/passRef';
 import { MapProvider } from '../Provider/MapProvider';
 
 export interface GoogleMapProps extends PropsWithChildren<MapEvent> {

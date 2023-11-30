@@ -8,10 +8,10 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "esnext",
-    "noImplicitAny": false,
-    "paths": {
-      "@@*": ["./src/*"]
-    }
+    "noImplicitAny": false
+    // "paths": {
+    //   "@@*": ["./src/*"]
+    // }
   },
   "include": ["./**/*.ts", "./**/*.tsx"],
   "exclude": ["node_modules", "dist", "*.d.ts"]

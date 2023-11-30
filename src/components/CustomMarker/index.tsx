@@ -2,9 +2,8 @@ import { ReactNode, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { passRef } from '@@utils/passRef';
-
 import { OverlayMarker } from './type';
+import { passRef } from '../../utils/passRef';
 import { CustomMarkerProvider } from '../Provider/CustomMarkerProvider';
 import { useMapContext } from '../Provider/MapProvider';
 
