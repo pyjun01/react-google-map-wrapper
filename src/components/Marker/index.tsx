@@ -1,9 +1,10 @@
 import { forwardRef, useEffect, useState } from 'react';
 
-import { passRef } from '@@utils/passRef';
+import { importLibrary } from 'src/hooks/useImportLibrary';
 
 import { MarkerProps } from './type';
 import { useApplyMarkerEvent } from '../../hooks/useApplyMarkerEvent';
+import { passRef } from '../../utils/passRef';
 import { useSetAnchor } from '../InfoWindow/Context';
 import { useMapContext } from '../Provider/MapProvider';
 
@@ -44,21 +45,28 @@ export const Marker = forwardRef<google.maps.Marker, MarkerProps>(
     const [marker, setMarker] = useState<google.maps.Marker | null>(null);
 
     useEffect(() => {
-      const marker = new google.maps.Marker({
-        ...markerOptions,
-        draggable: !!draggable,
-        map,
-        position: { lat, lng },
-      });
+      let marker;
 
-      setMarker(marker);
-      passRef(ref, marker);
+      const loadMarker = async () => {
+        const markerLib = await importLibrary('marker');
 
-      // for InfoWindow
-      setAnchor(marker);
+        marker = new markerLib.Marker({
+          ...markerOptions,
+          draggable: !!draggable,
+          map,
+          position: { lat, lng },
+        });
+
+        setMarker(marker);
+        passRef(ref, marker);
+
+        // for InfoWindow
+        setAnchor(marker);
+      };
+      loadMarker();
 
       return () => {
-        marker.setMap(null);
+        marker?.setMap(null);
         setAnchor(null);
       };
     }, []);

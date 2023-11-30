@@ -43,7 +43,7 @@ export interface ApiLoadConfig {
    * additional Maps JavaScript API libraries to load. it is not generally recommended, but is available for developers who wish to finely tune the caching behavior on their website.
    * https://developers.google.com/maps/documentation/javascript/libraries#libraries-for-bootstrap-url-legacy
    */
-  libraries?: LibraryName[];
+  libraries?: LibraryName | LibraryName[];
   /**
    * The language to use.
    * https://developers.google.com/maps/faq#languagesupport
