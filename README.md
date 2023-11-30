@@ -10,7 +10,7 @@ Google map react componentize project
 - [x] Custom Marker
 - [x] Controls
 - [x] InfoWindow
-- [ ] Polyline
+- [x] Polyline
 - [ ] Polygon
 - [ ] Rectangle
 - [ ] Circle

@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-
-import { InfoWindowProps } from 'src/components/InfoWindow/type';
+import { useMvcObjectEventEffect } from './useMvcObjectEventEffect';
+import { InfoWindowProps } from '../components/InfoWindow/type';
 
 export const useApplyInfoWindowEvent = (
   infoWindow: google.maps.InfoWindow | null,
@@ -13,21 +12,10 @@ export const useApplyInfoWindowEvent = (
     onZIndexChanged,
   }: InfoWindowProps,
 ) => {
-  const useEventEffect = (key, callback) =>
-    useEffect(() => {
-      if (!infoWindow || !callback) {
-        return;
-      }
-
-      const listener = infoWindow.addListener(key, callback);
-
-      return () => google.maps.event.removeListener(listener);
-    }, [callback]);
-
-  useEventEffect('closeclick', onCloseClick);
-  useEventEffect('content_changed', onContentChanged);
-  useEventEffect('domready', onDomReady);
-  useEventEffect('position_changed', onPositionChanged);
-  useEventEffect('visible', onVisible);
-  useEventEffect('zindex_changed', onZIndexChanged);
+  useMvcObjectEventEffect(infoWindow, 'closeclick', onCloseClick);
+  useMvcObjectEventEffect(infoWindow, 'content_changed', onContentChanged);
+  useMvcObjectEventEffect(infoWindow, 'domready', onDomReady);
+  useMvcObjectEventEffect(infoWindow, 'position_changed', onPositionChanged);
+  useMvcObjectEventEffect(infoWindow, 'visible', onVisible);
+  useMvcObjectEventEffect(infoWindow, 'zindex_changed', onZIndexChanged);
 };

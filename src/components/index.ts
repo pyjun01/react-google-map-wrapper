@@ -10,6 +10,8 @@ export { useSetAnchor } from './InfoWindow/Context';
 export * from './InfoWindow/type';
 export * from './Marker/index';
 export * from './Marker/type';
+export * from './Polyline/index';
+export * from './Polyline/type';
 export * from './Provider/MapProvider';
 export * from './Provider/MarkerProvider';
 export * from './Provider/CustomMarkerProvider';

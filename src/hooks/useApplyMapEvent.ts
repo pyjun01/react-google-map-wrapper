@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-
+import { useMvcObjectEventEffect } from './useMvcObjectEventEffect';
 import { MapEvent } from '../components/GoogleMap/type';
 
 export const useApplyMapEvent = (
@@ -28,39 +27,33 @@ export const useApplyMapEvent = (
     onZoomChanged,
   }: MapEvent,
 ) => {
-  const useEventEffect = (key, callback) =>
-    useEffect(() => {
-      if (!map || !callback) {
-        return;
-      }
-
-      const listener = map.addListener(key, callback);
-
-      return () => google.maps.event.removeListener(listener);
-    }, []);
-
-  useEventEffect('bounds_changed', onBoundsChanged);
-  useEventEffect('center_changed', onCenterChanged);
-  useEventEffect('click', onClick);
-  useEventEffect('contextmenu', onContextmenu);
-  useEventEffect('dblclick', onDblclick);
-  useEventEffect('drag', onDrag);
-  useEventEffect('dragend', onDragEnd);
-  useEventEffect('dragstart', onDragStart);
-  useEventEffect('heading_changed', onHeadingChanged);
-  useEventEffect('idle', onIdle);
-  useEventEffect(
+  useMvcObjectEventEffect(map, 'bounds_changed', onBoundsChanged);
+  useMvcObjectEventEffect(map, 'center_changed', onCenterChanged);
+  useMvcObjectEventEffect(map, 'click', onClick);
+  useMvcObjectEventEffect(map, 'contextmenu', onContextmenu);
+  useMvcObjectEventEffect(map, 'dblclick', onDblclick);
+  useMvcObjectEventEffect(map, 'drag', onDrag);
+  useMvcObjectEventEffect(map, 'dragend', onDragEnd);
+  useMvcObjectEventEffect(map, 'dragstart', onDragStart);
+  useMvcObjectEventEffect(map, 'heading_changed', onHeadingChanged);
+  useMvcObjectEventEffect(map, 'idle', onIdle);
+  useMvcObjectEventEffect(
+    map,
     'isfractionalzoomenabled_changed',
     onIsFractionalZoomEnabledChanged,
   );
-  useEventEffect('mapcapabilities_changed', onMapCapabilitiesChanged);
-  useEventEffect('maptypeid_changed', onMapTypeIdChanged);
-  useEventEffect('mousemove', onMouseMove);
-  useEventEffect('mouseout', onMouseOut);
-  useEventEffect('mouseover', onMouseOver);
-  useEventEffect('projection_changed', onProjectionChanged);
-  useEventEffect('renderingtype_changed', onRenderingTypeChanged);
-  useEventEffect('tilesloaded', onTilesLoaded);
-  useEventEffect('tilt_changed', onTiltChanged);
-  useEventEffect('zoom_changed', onZoomChanged);
+  useMvcObjectEventEffect(
+    map,
+    'mapcapabilities_changed',
+    onMapCapabilitiesChanged,
+  );
+  useMvcObjectEventEffect(map, 'maptypeid_changed', onMapTypeIdChanged);
+  useMvcObjectEventEffect(map, 'mousemove', onMouseMove);
+  useMvcObjectEventEffect(map, 'mouseout', onMouseOut);
+  useMvcObjectEventEffect(map, 'mouseover', onMouseOver);
+  useMvcObjectEventEffect(map, 'projection_changed', onProjectionChanged);
+  useMvcObjectEventEffect(map, 'renderingtype_changed', onRenderingTypeChanged);
+  useMvcObjectEventEffect(map, 'tilesloaded', onTilesLoaded);
+  useMvcObjectEventEffect(map, 'tilt_changed', onTiltChanged);
+  useMvcObjectEventEffect(map, 'zoom_changed', onZoomChanged);
 };

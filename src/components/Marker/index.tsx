@@ -1,9 +1,8 @@
 import { forwardRef, useEffect, useState } from 'react';
 
-import { importLibrary } from 'src/hooks/useImportLibrary';
-
 import { MarkerProps } from './type';
 import { useApplyMarkerEvent } from '../../hooks/useApplyMarkerEvent';
+import { importLibrary } from '../../hooks/useImportLibrary';
 import { passRef } from '../../utils/passRef';
 import { useSetAnchor } from '../InfoWindow/Context';
 import { useMapContext } from '../Provider/MapProvider';

@@ -1,6 +1,7 @@
 import {
   Control,
   Marker,
+  Polyline,
   CustomMarker,
   InfoWindow,
   GoogleMap,
@@ -12,8 +13,9 @@ import {
 import type {
   ControlProps,
   MarkerProps,
-  InfoWindowProps,
+  PolylineProps,
   CustomMarkerProps,
+  InfoWindowProps,
   GoogleMapProps,
   GoogleMapApiLoaderProps,
   MapEvent,
@@ -29,6 +31,7 @@ import { appendLibImportScript } from './utils/appendScript';
 export {
   Control,
   Marker,
+  Polyline,
   CustomMarker,
   InfoWindow,
   GoogleMap,
@@ -45,6 +48,7 @@ export {
 export type {
   ControlProps,
   MarkerProps,
+  PolylineProps,
   InfoWindowProps,
   CustomMarkerProps,
   GoogleMapProps,
@@ -61,6 +65,7 @@ export type {
 export default {
   Control,
   Marker,
+  Polyline,
   CustomMarker,
   InfoWindow,
   GoogleMap,

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-
+import { useMvcObjectEventEffect } from './useMvcObjectEventEffect';
 import { MarkerEvent } from '../components/Marker/type';
 
 export const useApplyMarkerEvent = (
@@ -28,36 +27,25 @@ export const useApplyMarkerEvent = (
     onZindexChanged,
   }: MarkerEvent,
 ) => {
-  const useEventEffect = (key, callback) =>
-    useEffect(() => {
-      if (!marker || !callback) {
-        return;
-      }
-
-      const listener = marker.addListener(key, callback);
-
-      return () => google.maps.event.removeListener(listener);
-    }, [callback]);
-
-  useEventEffect('animation_changed', onAnimationChanged);
-  useEventEffect('click', onClick);
-  useEventEffect('clickable_changed', onClickableChanged);
-  useEventEffect('contextmenu', onContextMenu);
-  useEventEffect('cursor_changed', onCursorChanged);
-  useEventEffect('dblclick', onDblClick);
-  useEventEffect('drag', onDrag);
-  useEventEffect('dragend', onDragEnd);
-  useEventEffect('draggable_changed', onDraggableChanged);
-  useEventEffect('dragstart', onDragStart);
-  useEventEffect('flat_changed', onFlatChanged);
-  useEventEffect('icon_changed', onIconChanged);
-  useEventEffect('mousedown', onMouseDown);
-  useEventEffect('mouseout', onMouseOut);
-  useEventEffect('mouseover', onMouseOver);
-  useEventEffect('mouseup', onMouseUp);
-  useEventEffect('position_changed', onPositionChanged);
-  useEventEffect('shape_changed', onShapeChanged);
-  useEventEffect('title_changed', onTitleChanged);
-  useEventEffect('visible_changed', onVisibleChanged);
-  useEventEffect('zindex_changed', onZindexChanged);
+  useMvcObjectEventEffect(marker, 'animation_changed', onAnimationChanged);
+  useMvcObjectEventEffect(marker, 'click', onClick);
+  useMvcObjectEventEffect(marker, 'clickable_changed', onClickableChanged);
+  useMvcObjectEventEffect(marker, 'contextmenu', onContextMenu);
+  useMvcObjectEventEffect(marker, 'cursor_changed', onCursorChanged);
+  useMvcObjectEventEffect(marker, 'dblclick', onDblClick);
+  useMvcObjectEventEffect(marker, 'drag', onDrag);
+  useMvcObjectEventEffect(marker, 'dragend', onDragEnd);
+  useMvcObjectEventEffect(marker, 'draggable_changed', onDraggableChanged);
+  useMvcObjectEventEffect(marker, 'dragstart', onDragStart);
+  useMvcObjectEventEffect(marker, 'flat_changed', onFlatChanged);
+  useMvcObjectEventEffect(marker, 'icon_changed', onIconChanged);
+  useMvcObjectEventEffect(marker, 'mousedown', onMouseDown);
+  useMvcObjectEventEffect(marker, 'mouseout', onMouseOut);
+  useMvcObjectEventEffect(marker, 'mouseover', onMouseOver);
+  useMvcObjectEventEffect(marker, 'mouseup', onMouseUp);
+  useMvcObjectEventEffect(marker, 'position_changed', onPositionChanged);
+  useMvcObjectEventEffect(marker, 'shape_changed', onShapeChanged);
+  useMvcObjectEventEffect(marker, 'title_changed', onTitleChanged);
+  useMvcObjectEventEffect(marker, 'visible_changed', onVisibleChanged);
+  useMvcObjectEventEffect(marker, 'zindex_changed', onZindexChanged);
 };
