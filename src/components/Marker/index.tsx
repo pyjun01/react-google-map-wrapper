@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from 'react';
 
 import { MarkerProps } from './type';
 import { useApplyMarkerEvent } from '../../hooks/useApplyMarkerEvent';
-import { importLibrary } from '../../hooks/useImportLibrary';
+import { useImportLibrary } from '../../hooks/useImportLibrary';
 import { passRef } from '../../utils/passRef';
 import { useSetAnchor } from '../InfoWindow/Context';
 import { useMapContext } from '../Provider/MapProvider';
@@ -34,41 +34,39 @@ export const Marker = forwardRef<google.maps.Marker, MarkerProps>(
       onTitleChanged,
       onVisibleChanged,
       onZindexChanged,
-      ...markerOptions
+      ...options
     },
     ref,
   ) {
     const map = useMapContext();
+    const markerLib = useImportLibrary('marker');
     const setAnchor = useSetAnchor();
 
     const [marker, setMarker] = useState<google.maps.Marker | null>(null);
 
     useEffect(() => {
-      let marker;
+      if (!markerLib?.Marker) {
+        return;
+      }
 
-      const loadMarker = async () => {
-        const markerLib = await importLibrary('marker');
+      const marker = new markerLib.Marker({
+        ...options,
+        draggable: !!draggable,
+        map,
+        position: { lat, lng },
+      });
 
-        marker = new markerLib.Marker({
-          ...markerOptions,
-          draggable: !!draggable,
-          map,
-          position: { lat, lng },
-        });
+      setMarker(marker);
+      passRef(ref, marker);
 
-        setMarker(marker);
-        passRef(ref, marker);
-
-        // for InfoWindow
-        setAnchor(marker);
-      };
-      loadMarker();
+      // for InfoWindow
+      setAnchor(marker);
 
       return () => {
         marker?.setMap(null);
         setAnchor(null);
       };
-    }, []);
+    }, [markerLib?.Marker]);
 
     useEffect(() => {
       marker?.setPosition({ lat, lng });
@@ -79,8 +77,8 @@ export const Marker = forwardRef<google.maps.Marker, MarkerProps>(
     }, [draggable]);
 
     useEffect(() => {
-      marker?.setOptions(markerOptions);
-    }, [markerOptions]);
+      marker?.setOptions(options);
+    }, Object.values(options));
 
     useApplyMarkerEvent(marker, {
       onAnimationChanged,
