@@ -31,7 +31,7 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
     ref,
   ) {
     const map = useMapContext();
-    const maps = useImportLibrary('maps');
+    const mapsLib = useImportLibrary('maps');
 
     const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
       null,
@@ -48,11 +48,11 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
     );
 
     useEffect(() => {
-      if (!maps?.InfoWindow) {
+      if (!mapsLib?.InfoWindow) {
         return;
       }
 
-      const infoWindow = new maps.InfoWindow({
+      const infoWindow = new mapsLib.InfoWindow({
         ariaLabel,
         content,
         disableAutoPan,
@@ -65,7 +65,7 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
 
       setInfoWindow(infoWindow);
       passRef(ref, infoWindow);
-    }, [maps?.InfoWindow]);
+    }, [mapsLib?.InfoWindow]);
 
     useEffect(() => {
       if (!infoWindow) {

@@ -66,15 +66,15 @@ export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(
     ref,
   ) {
     const containerRef = useRef<HTMLDivElement>(null);
-    const maps = useImportLibrary('maps');
+    const mapsLib = useImportLibrary('maps');
     const [map, setMap] = useState<google.maps.Map | null>(null);
 
     useEffect(() => {
-      if (!maps?.Map) {
+      if (!mapsLib?.Map) {
         return;
       }
 
-      const map = new maps.Map(containerRef.current!, {
+      const map = new mapsLib.Map(containerRef.current!, {
         center: initialCenter || center || mapOptions.center,
         zoom: initialZoom || zoom || mapOptions.zoom,
         ...mapOptions,
@@ -84,7 +84,7 @@ export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(
       onLoad?.(map);
 
       passRef(ref, map);
-    }, [maps?.Map]);
+    }, [mapsLib?.Map]);
 
     useApplyMapOptions(map, {
       ...mapOptions,
