@@ -18,6 +18,8 @@ export * from './Rectangle/index';
 export * from './Rectangle/type';
 export * from './Circle/index';
 export * from './Circle/type';
+export * from './HeatmapLayer/index';
+export * from './HeatmapLayer/type';
 export * from './Provider/MapProvider';
 export * from './Provider/MarkerProvider';
 export * from './Provider/CustomMarkerProvider';

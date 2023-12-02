@@ -1,6 +1,11 @@
 import { PropsWithChildren, useEffect } from 'react';
 
-import { LoadingStatus, coreStore, useCoreStore } from '../../store/core';
+import {
+  LoadingStatus,
+  coreStore,
+  useApiLoadingStatus,
+  useCoreStore,
+} from '../../store/core';
 import { ApiLoadConfig } from '../../types';
 import { appendLibImportScript } from '../../utils/appendScript';
 
@@ -22,7 +27,7 @@ export function GoogleMapApiLoader({
 }: GoogleMapApiLoaderProps) {
   appendLibImportScript(apiLoadConfig);
 
-  const status = useCoreStore((state) => state.status);
+  const status = useApiLoadingStatus();
 
   const importCoreLibrary = () =>
     promise ||
