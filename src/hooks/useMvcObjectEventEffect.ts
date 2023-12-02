@@ -10,7 +10,7 @@ export const useMvcObjectEventEffect = (
       return;
     }
 
-    const listener = tg.addListener(key, callback);
+    const listener = tg.addListener(key, callback.bind(null, tg));
 
     return () => google.maps.event.removeListener(listener);
   }, [tg, callback]);

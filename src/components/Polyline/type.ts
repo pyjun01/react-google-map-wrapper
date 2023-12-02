@@ -1,15 +1,48 @@
 export interface PolylineEvent {
-  onClick?: (event: google.maps.PolyMouseEvent) => void;
-  onContextmenu?: (event: google.maps.PolyMouseEvent) => void;
-  onDblClick?: (event: google.maps.PolyMouseEvent) => void;
-  onDrag?: (event: google.maps.MapMouseEvent) => void;
-  onDragEnd?: (event: google.maps.MapMouseEvent) => void;
-  onDragStart?: (event: google.maps.MapMouseEvent) => void;
-  onMouseDown?: (event: google.maps.PolyMouseEvent) => void;
-  onMouseMove?: (event: google.maps.PolyMouseEvent) => void;
-  onMouseOut?: (event: google.maps.PolyMouseEvent) => void;
-  onMouseOver?: (event: google.maps.PolyMouseEvent) => void;
-  onMouseUp?: (event: google.maps.PolyMouseEvent) => void;
+  onClick?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onContextmenu?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onDblClick?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onDrag?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.MapMouseEvent,
+  ) => void;
+  onDragEnd?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.MapMouseEvent,
+  ) => void;
+  onDragStart?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.MapMouseEvent,
+  ) => void;
+  onMouseDown?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onMouseMove?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onMouseOut?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onMouseOver?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
+  onMouseUp?: (
+    polyline: google.maps.Polyline,
+    event: google.maps.PolyMouseEvent,
+  ) => void;
 }
 
 export interface PolylineProps

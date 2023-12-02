@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface OverlayMarker extends google.maps.OverlayView {
   map: google.maps.Map;
   container: HTMLDivElement;
@@ -11,4 +13,18 @@ export interface OverlayMarker extends google.maps.OverlayView {
   ): () => void;
   updatePosition(position: google.maps.LatLngLiteral): void;
   setDraggable(draggable: boolean);
+}
+
+export interface CustomMarkerEvent {
+  onDragStart?: (position: google.maps.LatLngLiteral) => void;
+  onDrag?: (position: google.maps.LatLngLiteral) => void;
+  onDragEnd?: (position: google.maps.LatLngLiteral) => void;
+}
+
+export interface CustomMarkerProps extends CustomMarkerEvent {
+  children?: ReactNode;
+  lat: number;
+  lng: number;
+  draggable?: unknown;
+  skipDragOnClickable?: unknown;
 }

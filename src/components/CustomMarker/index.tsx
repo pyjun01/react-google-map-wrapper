@@ -2,23 +2,12 @@ import { ReactNode, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { OverlayMarker } from './type';
+import { CustomMarkerProps, OverlayMarker } from './type';
 import { passRef } from '../../utils/passRef';
 import { CustomMarkerProvider } from '../Provider/CustomMarkerProvider';
 import { useMapContext } from '../Provider/MapProvider';
 
 let classCache;
-
-export interface CustomMarkerProps {
-  children?: ReactNode;
-  lat: number;
-  lng: number;
-  draggable?: unknown;
-  skipDragOnClickable?: unknown;
-  onDragStart?: (position: google.maps.LatLngLiteral) => void;
-  onDrag?: (position: google.maps.LatLngLiteral) => void;
-  onDragEnd?: (position: google.maps.LatLngLiteral) => void;
-}
 
 export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(
   function CustomMarker(
