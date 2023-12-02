@@ -14,6 +14,8 @@ export * from './Polyline/index';
 export * from './Polyline/type';
 export * from './Polygon/index';
 export * from './Polygon/type';
+export * from './Rectangle/index';
+export * from './Rectangle/type';
 export * from './Provider/MapProvider';
 export * from './Provider/MarkerProvider';
 export * from './Provider/CustomMarkerProvider';

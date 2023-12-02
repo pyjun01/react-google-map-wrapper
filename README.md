@@ -12,7 +12,7 @@ Google map react componentize project
 - [x] InfoWindow
 - [x] Polyline
 - [x] Polygon
-- [ ] Rectangle
+- [x] Rectangle
 - [ ] Circle
 - [ ] AdvancedMarkerView
 - [ ] MarkerClusterer
