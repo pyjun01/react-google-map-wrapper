@@ -15,7 +15,7 @@ Google map react componentize project
 - [x] Rectangle
 - [x] Circle
 - [ ] AdvancedMarkerView
-- [ ] MarkerClusterer
+- [x] MarkerClusterer
 - [ ] HeatmapLayer
 
 ## DEMO

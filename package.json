@@ -46,6 +46,7 @@
     "@babel/plugin-syntax-typescript": "^7.22.5",
     "@babel/types": "^7.22.19",
     "@googlemaps/js-api-loader": "^1.16.2",
+    "@googlemaps/markerclusterer": "^2.5.1",
     "@types/google.maps": "^3.54.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

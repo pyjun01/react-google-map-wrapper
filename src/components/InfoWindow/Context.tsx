@@ -5,7 +5,7 @@ export interface AnchorContextData {
 }
 
 export const AnchorContext = createContext<AnchorContextData>({
-  setAnchor: () => void 0,
+  setAnchor: () => {},
 });
 
 export const useSetAnchor = () => useContext(AnchorContext).setAnchor;
