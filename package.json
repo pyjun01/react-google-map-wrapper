@@ -1,19 +1,24 @@
 {
-  "name": "react-google-map",
+  "name": "react-google-map-wrapper",
   "version": "0.0.1",
-  "description": "React Google Map",
+  "description": "Component library for rendering Google Maps in React",
   "keywords": [
     "react",
+    "reactjs",
+    "google",
+    "map",
+    "maps",
     "google map",
-    "react google map"
+    "reaect google map",
+    "google map component"
   ],
-  "homepage": "https://github.com/pyjun01/react-google-map#readme",
+  "homepage": "https://github.com/pyjun01/react-google-map-wrapper#readme",
   "bugs": {
-    "url": "https://github.com/pyjun01/react-google-map/issues"
+    "url": "https://github.com/pyjun01/react-google-map-wrapper/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pyjun01/react-google-map.git"
+    "url": "git+ssh://git@github.com/pyjun01/react-google-map-wrapper.git"
   },
   "funding": "https://github.com/sponsors/pyjun01",
   "license": "MIT",
