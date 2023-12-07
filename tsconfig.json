@@ -1,13 +1,18 @@
 {
-  "extends": "@vercel/style-guide/typescript",
   "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "strict": true,
     "baseUrl": ".",
     "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "es2021"],
     "outDir": "dist",
     "moduleResolution": "node",
-    "module": "esnext",
-    "target": "esnext",
+    "module": "es2022",
+    "target": "es2021",
     "noImplicitAny": false
     // "paths": {
     //   "@@*": ["./src/*"]
