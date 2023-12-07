@@ -11,7 +11,6 @@ export const useApplyPolylineOptions = (
   }, Object.values(options));
 
   useEffect(() => {
-    // console.log(path);
     polyline?.setPath(path ?? []);
   }, [path]);
 };

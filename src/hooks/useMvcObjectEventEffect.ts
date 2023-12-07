@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export const useMvcObjectEventEffect = (
-  tg: google.maps.MVCObject | null,
+  tg: Pick<google.maps.MVCObject, 'addListener'> | null,
   key: string,
   callback: Function | undefined,
 ) =>

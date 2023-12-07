@@ -43,7 +43,6 @@ export const Marker = forwardRef<google.maps.Marker, MarkerProps>(
     const markerLib = useImportLibrary('marker');
     const setAnchor = useSetAnchor();
     const cluster = useMarkerClusterer();
-    const isFirstMount = useRef(true);
 
     const [marker, setMarker] = useState<google.maps.Marker | null>(null);
 

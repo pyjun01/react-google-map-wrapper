@@ -20,7 +20,8 @@ export const HeatmapLayer = forwardRef<
   },
   ref,
 ) {
-  const map = useMapContext();
+  const originalMap = useMapContext();
+  const map = hidden ? null : originalMap;
   const visualizationLib = useImportLibrary('visualization');
   const [heatmap, setHeatmap] =
     useState<google.maps.visualization.HeatmapLayer | null>(null);
@@ -55,7 +56,7 @@ export const HeatmapLayer = forwardRef<
   }, [data]);
 
   useEffect(() => {
-    heatmap?.setMap(hidden ? null : map);
+    heatmap?.setMap(map);
   }, [hidden]);
 
   useEffect(() => {
