@@ -13,9 +13,6 @@ export const useMapContext = () => {
   return map;
 };
 
-export function MapProvider({
-  children,
-  value,
-}: PropsWithChildren<{ value: google.maps.Map }>) {
+export function MapProvider({ children, value }: PropsWithChildren<{ value: google.maps.Map }>) {
   return <MapContext.Provider value={value}>{children}</MapContext.Provider>;
 }

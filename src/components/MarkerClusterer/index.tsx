@@ -1,29 +1,20 @@
-import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import {
-  MarkerClusterer as MarkerClustererClass,
-  MarkerClustererOptions,
-} from '@googlemaps/markerclusterer';
+import { MarkerClusterer as MarkerClustererClass, MarkerClustererOptions } from '@googlemaps/markerclusterer';
 
+import { MarkerClustererProvider } from './Context';
+import { MarkerClustererProps } from './type';
 import { passRef } from '../../utils/passRef';
 import { useMapContext } from '../Provider/MapProvider';
-import { MarkerClustererProps } from './type';
-import { MarkerClustererProvider } from './Context';
 
-const createMarkerClusterer = (options: MarkerClustererOptions) =>
-  new MarkerClustererClass(options);
+const createMarkerClusterer = (options: MarkerClustererOptions) => new MarkerClustererClass(options);
 
-export const MarkerClusterer = forwardRef<
-  MarkerClustererClass,
-  MarkerClustererProps
->(function MarkerClusterer(
+export const MarkerClusterer = forwardRef<MarkerClustererClass, MarkerClustererProps>(function MarkerClusterer(
   { children, algorithmOptions, algorithm, renderer, onClusterClick },
-  ref,
+  ref
 ) {
   const map = useMapContext();
-  const markers = useRef(
-    new Set<google.maps.Marker | google.maps.marker.AdvancedMarkerElement>(),
-  );
+  const markers = useRef(new Set<google.maps.Marker | google.maps.marker.AdvancedMarkerElement>());
   const markerCluster = useRef(
     createMarkerClusterer({
       map,
@@ -31,20 +22,15 @@ export const MarkerClusterer = forwardRef<
       algorithm,
       renderer,
       onClusterClick,
-    }),
+    })
   );
 
   const value = useMemo(
     () => ({
-      addMarker: (marker) => (
-        markers.current.add(marker), markerCluster.current.addMarker(marker)
-      ),
-      removeMarker: (marker) => (
-        markers.current.delete(marker),
-        markerCluster.current.removeMarker(marker)
-      ),
+      addMarker: (marker) => (markers.current.add(marker), markerCluster.current.addMarker(marker)),
+      removeMarker: (marker) => (markers.current.delete(marker), markerCluster.current.removeMarker(marker)),
     }),
-    [],
+    []
   );
 
   useEffect(() => {
@@ -63,7 +49,5 @@ export const MarkerClusterer = forwardRef<
     });
   }, [algorithmOptions, algorithm, renderer, onClusterClick]);
 
-  return (
-    <MarkerClustererProvider value={value}>{children}</MarkerClustererProvider>
-  );
+  return <MarkerClustererProvider value={value}>{children}</MarkerClustererProvider>;
 });

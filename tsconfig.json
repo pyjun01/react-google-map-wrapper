@@ -13,10 +13,11 @@
     "moduleResolution": "node",
     "module": "es2022",
     "target": "es2021",
-    "noImplicitAny": false
-    // "paths": {
-    //   "@@*": ["./src/*"]
-    // }
+    "noImplicitAny": false,
+    "types": ["vite/client", "google.maps", "node"],
+    "paths": {
+      "@@*": ["./src/*"]
+    }
   },
   "include": ["./**/*.ts", "./**/*.tsx"],
   "exclude": ["node_modules", "dist", "*.d.ts"]

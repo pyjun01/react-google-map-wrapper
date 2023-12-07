@@ -4,19 +4,7 @@ import { useMvcObjectEventEffect } from './useMvcObjectEventEffect';
 
 export const useApplyPolylineEvent = (
   polyline: google.maps.Polyline | null,
-  {
-    onClick,
-    onContextmenu,
-    onDblClick,
-    onDrag,
-    onDragEnd,
-    onDragStart,
-    onMouseDown,
-    onMouseMove,
-    onMouseOut,
-    onMouseOver,
-    onMouseUp,
-  }: PolylineEvent,
+  { onClick, onContextmenu, onDblClick, onDrag, onDragEnd, onDragStart, onMouseDown, onMouseMove, onMouseOut, onMouseOver, onMouseUp }: PolylineEvent
 ) => {
   useMvcObjectEventEffect(polyline, 'click', onClick);
   useMvcObjectEventEffect(polyline, 'contextmenu', onContextmenu);

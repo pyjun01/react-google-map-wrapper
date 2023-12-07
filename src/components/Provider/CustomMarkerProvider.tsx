@@ -9,24 +9,14 @@ export const useCustomMarkerContext = () => {
   const marker = useContext(CustomMarkerContext);
 
   if (marker === null) {
-    throw Error(
-      'You must use `useCustomMarkerContext` inside of `CustomMarker`',
-    );
+    throw Error('You must use `useCustomMarkerContext` inside of `CustomMarker`');
   }
 
   return marker;
 };
 
-export interface CustomMarkerProvider
-  extends PropsWithChildren<{ value: OverlayMarker }> {}
+export interface CustomMarkerProvider extends PropsWithChildren<{ value: OverlayMarker }> {}
 
-export function CustomMarkerProvider({
-  children,
-  value,
-}: CustomMarkerProvider) {
-  return (
-    <CustomMarkerContext.Provider value={value}>
-      {children}
-    </CustomMarkerContext.Provider>
-  );
+export function CustomMarkerProvider({ children, value }: CustomMarkerProvider) {
+  return <CustomMarkerContext.Provider value={value}>{children}</CustomMarkerContext.Provider>;
 }

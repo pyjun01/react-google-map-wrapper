@@ -2,10 +2,7 @@ import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import {
-  AdvancedMarkerContentContextData,
-  AdvancedMarkerContentProvider,
-} from './Context';
+import { AdvancedMarkerContentContextData, AdvancedMarkerContentProvider } from './Context';
 import { AdvancedMarkerProps } from './type';
 import { useApplyAdvancedMarkerEvent } from '../../hooks/useApplyAdvancedMarkerEvent';
 import { useApplyAdvancedMarkerOptions } from '../../hooks/useApplyAdvancedMarkerOptions';
@@ -14,10 +11,7 @@ import { passRef } from '../../utils/passRef';
 import { useSetAnchor } from '../InfoWindow/Context';
 import { useMapContext } from '../Provider/MapProvider';
 
-export const AdvancedMarker = forwardRef<
-  google.maps.marker.AdvancedMarkerElement,
-  AdvancedMarkerProps
->(function AdvancedMarker(
+export const AdvancedMarker = forwardRef<google.maps.marker.AdvancedMarkerElement, AdvancedMarkerProps>(function AdvancedMarker(
   {
     children,
     lat,
@@ -34,7 +28,7 @@ export const AdvancedMarker = forwardRef<
     onDragStart,
     onGmpClick,
   },
-  ref,
+  ref
 ) {
   const originalMap = useMapContext();
   const map = hidden ? null : originalMap;
@@ -42,16 +36,14 @@ export const AdvancedMarker = forwardRef<
   const setAnchor = useSetAnchor();
 
   const fragment = useRef<HTMLDivElement>(document.createElement('div'));
-  const [advancedMarker, setAdvancedMarker] =
-    useState<google.maps.marker.AdvancedMarkerElement | null>(null);
-  const [pinElement, setPinElement] =
-    useState<google.maps.marker.PinElement | null>(null);
+  const [advancedMarker, setAdvancedMarker] = useState<google.maps.marker.AdvancedMarkerElement | null>(null);
+  const [pinElement, setPinElement] = useState<google.maps.marker.PinElement | null>(null);
 
   const value = useMemo<AdvancedMarkerContentContextData>(
     () => ({
       setAdvancedMarkerContent: setPinElement,
     }),
-    [],
+    []
   );
 
   useEffect(() => {
@@ -107,9 +99,5 @@ export const AdvancedMarker = forwardRef<
     onGmpClick,
   });
 
-  return (
-    <AdvancedMarkerContentProvider value={value}>
-      {createPortal(children, fragment.current)}
-    </AdvancedMarkerContentProvider>
-  );
+  return <AdvancedMarkerContentProvider value={value}>{createPortal(children, fragment.current)}</AdvancedMarkerContentProvider>;
 });

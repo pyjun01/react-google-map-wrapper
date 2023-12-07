@@ -7,19 +7,14 @@ export interface MarkerClustererContextData {
 
 const initialContextData = {
   addMarker: () => {
-    throw Error(
-      'You must use `useMarkerClusterer` inside of `MarkerClustererProvideer`',
-    );
+    throw Error('You must use `useMarkerClusterer` inside of `MarkerClustererProvideer`');
   },
   removeMarker: () => {
-    throw Error(
-      'You must use `useMarkerClusterer` inside of `MarkerClustererProvideer`',
-    );
+    throw Error('You must use `useMarkerClusterer` inside of `MarkerClustererProvideer`');
   },
 };
 
-export const MarkerClustererContext =
-  createContext<MarkerClustererContextData>(initialContextData);
+export const MarkerClustererContext = createContext<MarkerClustererContextData>(initialContextData);
 
 export const useMarkerClusterer = () => {
   const data = useContext(MarkerClustererContext);
@@ -31,8 +26,6 @@ export const useMarkerClusterer = () => {
   return data;
 };
 
-export function MarkerClustererProvider(
-  props: ComponentProps<typeof MarkerClustererContext.Provider>,
-) {
+export function MarkerClustererProvider(props: ComponentProps<typeof MarkerClustererContext.Provider>) {
   return <MarkerClustererContext.Provider {...props} />;
 }

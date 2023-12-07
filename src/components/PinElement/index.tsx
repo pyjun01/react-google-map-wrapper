@@ -1,24 +1,21 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 
-import { PinElementProps } from './type';
-import { useImportLibrary } from '../../hooks/useImportLibrary';
-import { passRef } from '../../utils/passRef';
-import { useApplyPinElementOptions } from '../../hooks/useApplyPinElementOptions';
-import { useAdvancedMarkerContent } from '../AdvancedMarker/Context';
 import { createPortal } from 'react-dom';
 
-const PinElementImpl = forwardRef<
-  google.maps.marker.PinElement,
-  PinElementProps & { lib: google.maps.MarkerLibrary }
->(function PinElementImpl(
+import { PinElementProps } from './type';
+import { useApplyPinElementOptions } from '../../hooks/useApplyPinElementOptions';
+import { useImportLibrary } from '../../hooks/useImportLibrary';
+import { passRef } from '../../utils/passRef';
+import { useAdvancedMarkerContent } from '../AdvancedMarker/Context';
+
+const PinElementImpl = forwardRef<google.maps.marker.PinElement, PinElementProps & { lib: google.maps.MarkerLibrary }>(function PinElementImpl(
   { children, lib, background, borderColor, glyph, glyphColor, scale },
-  ref,
+  ref
 ) {
   const { setAdvancedMarkerContent } = useAdvancedMarkerContent();
 
   const fragment = useRef<HTMLDivElement>(document.createElement('div'));
-  const [pinElement, setPinElement] =
-    useState<google.maps.marker.PinElement | null>(null);
+  const [pinElement, setPinElement] = useState<google.maps.marker.PinElement | null>(null);
 
   useEffect(() => {
     fragment.current.style.display = 'contents';
@@ -52,10 +49,7 @@ const PinElementImpl = forwardRef<
   return createPortal(<>{children}</>, fragment.current);
 });
 
-export const PinElement = forwardRef<
-  google.maps.marker.PinElement,
-  PinElementProps
->(function PinElement(props, ref) {
+export const PinElement = forwardRef<google.maps.marker.PinElement, PinElementProps>(function PinElement(props, ref) {
   const markerLib = useImportLibrary('marker');
 
   if (!markerLib?.PinElement) {

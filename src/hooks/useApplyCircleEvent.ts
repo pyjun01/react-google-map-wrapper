@@ -17,7 +17,7 @@ export const useApplyCircleEvent = (
     onMouseOver,
     onMouseUp,
     onRadiusChanged,
-  }: CircleEvent,
+  }: CircleEvent
 ) => {
   useMvcObjectEventEffect(circle, 'center_changed', onCenterChanged);
   useMvcObjectEventEffect(circle, 'click', onClick);

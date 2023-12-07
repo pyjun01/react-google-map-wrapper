@@ -1,16 +1,10 @@
 import { PropsWithChildren, useEffect } from 'react';
 
-import {
-  LoadingStatus,
-  coreStore,
-  useApiLoadingStatus,
-  useCoreStore,
-} from '../../store/core';
+import { LoadingStatus, coreStore, useApiLoadingStatus } from '../../store/core';
 import { ApiLoadConfig } from '../../types';
 import { appendLibImportScript } from '../../utils/appendScript';
 
-export interface GoogleMapApiLoaderProps
-  extends PropsWithChildren<ApiLoadConfig> {
+export interface GoogleMapApiLoaderProps extends PropsWithChildren<ApiLoadConfig> {
   suspense?: unknown;
   onSuccess?: (core: google.maps.CoreLibrary) => void;
   onFailure?: (reason: unknown) => void;
@@ -18,13 +12,7 @@ export interface GoogleMapApiLoaderProps
 
 let promise: Promise<unknown> | null = null;
 
-export function GoogleMapApiLoader({
-  children,
-  suspense,
-  onSuccess,
-  onFailure,
-  ...apiLoadConfig
-}: GoogleMapApiLoaderProps) {
+export function GoogleMapApiLoader({ children, suspense, onSuccess, onFailure, ...apiLoadConfig }: GoogleMapApiLoaderProps) {
   appendLibImportScript(apiLoadConfig);
 
   const status = useApiLoadingStatus();

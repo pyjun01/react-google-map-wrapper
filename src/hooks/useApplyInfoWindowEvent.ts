@@ -3,14 +3,7 @@ import { InfoWindowProps } from '../components/InfoWindow/type';
 
 export const useApplyInfoWindowEvent = (
   infoWindow: google.maps.InfoWindow | null,
-  {
-    onCloseClick,
-    onContentChanged,
-    onDomReady,
-    onPositionChanged,
-    onVisible,
-    onZIndexChanged,
-  }: InfoWindowProps,
+  { onCloseClick, onContentChanged, onDomReady, onPositionChanged, onVisible, onZIndexChanged }: InfoWindowProps
 ) => {
   useMvcObjectEventEffect(infoWindow, 'closeclick', onCloseClick);
   useMvcObjectEventEffect(infoWindow, 'content_changed', onContentChanged);

@@ -6,57 +6,31 @@ import { useApplyRectangleOptions } from '../../hooks/useApplyRectangleOptions';
 import { passRef } from '../../utils/passRef';
 import { useMapContext } from '../Provider/MapProvider';
 
-export const Rectangle = forwardRef<google.maps.Rectangle, RectangleProps>(
-  function Rectangle(
-    {
-      bounds,
-      clickable,
-      draggable,
-      editable,
-      fillColor,
-      fillOpacity,
-      strokeColor,
-      strokeOpacity,
-      strokePosition,
-      strokeWeight,
-      visible,
-      zIndex,
-      ...events
-    },
-    ref,
-  ) {
-    const map = useMapContext();
+export const Rectangle = forwardRef<google.maps.Rectangle, RectangleProps>(function Rectangle(
+  {
+    bounds,
+    clickable,
+    draggable,
+    editable,
+    fillColor,
+    fillOpacity,
+    strokeColor,
+    strokeOpacity,
+    strokePosition,
+    strokeWeight,
+    visible,
+    zIndex,
+    ...events
+  },
+  ref
+) {
+  const map = useMapContext();
 
-    const [Rectangle, setRectangle] = useState<google.maps.Rectangle | null>(
-      null,
-    );
+  const [Rectangle, setRectangle] = useState<google.maps.Rectangle | null>(null);
 
-    useEffect(() => {
-      const Rectangle = new google.maps.Rectangle({
-        map,
-        bounds,
-        clickable,
-        draggable,
-        editable,
-        fillColor,
-        fillOpacity,
-        strokeColor,
-        strokeOpacity,
-        strokePosition,
-        strokeWeight,
-        visible,
-        zIndex,
-      });
-
-      setRectangle(Rectangle);
-      passRef(ref, Rectangle);
-
-      return () => {
-        Rectangle.setMap(null);
-      };
-    }, []);
-
-    useApplyRectangleOptions(Rectangle, {
+  useEffect(() => {
+    const Rectangle = new google.maps.Rectangle({
+      map,
       bounds,
       clickable,
       draggable,
@@ -70,8 +44,30 @@ export const Rectangle = forwardRef<google.maps.Rectangle, RectangleProps>(
       visible,
       zIndex,
     });
-    useApplyRectangleEvent(Rectangle, events);
 
-    return null;
-  },
-);
+    setRectangle(Rectangle);
+    passRef(ref, Rectangle);
+
+    return () => {
+      Rectangle.setMap(null);
+    };
+  }, []);
+
+  useApplyRectangleOptions(Rectangle, {
+    bounds,
+    clickable,
+    draggable,
+    editable,
+    fillColor,
+    fillOpacity,
+    strokeColor,
+    strokeOpacity,
+    strokePosition,
+    strokeWeight,
+    visible,
+    zIndex,
+  });
+  useApplyRectangleEvent(Rectangle, events);
+
+  return null;
+});

@@ -7,12 +7,48 @@ import { useApplyInfoWindowEvent } from '../../hooks/useApplyInfoWindowEvent';
 import { useImportLibrary } from '../../hooks/useImportLibrary';
 import { passRef } from '../../utils/passRef';
 
-export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
-  function InfoWindow(
-    {
-      children,
-      open,
-      shouldFocus,
+export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(function InfoWindow(
+  {
+    children,
+    open,
+    shouldFocus,
+    ariaLabel,
+    content,
+    disableAutoPan,
+    maxWidth,
+    minWidth,
+    pixelOffset,
+    position,
+    zIndex,
+    onCloseClick,
+    onContentChanged,
+    onDomReady,
+    onPositionChanged,
+    onVisible,
+    onZIndexChanged,
+  },
+  ref
+) {
+  const map = useMapContext();
+  const mapsLib = useImportLibrary('maps');
+
+  const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(null);
+
+  const [anchor, setAnchor] = useState<Parameters<AnchorContextData['setAnchor']>[0]>();
+
+  const value = useMemo<AnchorContextData>(
+    () => ({
+      setAnchor: (anchor) => setAnchor(anchor),
+    }),
+    []
+  );
+
+  useEffect(() => {
+    if (!mapsLib?.InfoWindow) {
+      return;
+    }
+
+    const infoWindow = new mapsLib.InfoWindow({
       ariaLabel,
       content,
       disableAutoPan,
@@ -21,104 +57,55 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(
       pixelOffset,
       position,
       zIndex,
-      onCloseClick,
-      onContentChanged,
-      onDomReady,
-      onPositionChanged,
-      onVisible,
-      onZIndexChanged,
-    },
-    ref,
-  ) {
-    const map = useMapContext();
-    const mapsLib = useImportLibrary('maps');
+    });
 
-    const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
-      null,
-    );
+    setInfoWindow(infoWindow);
+    passRef(ref, infoWindow);
+  }, [mapsLib?.InfoWindow]);
 
-    const [anchor, setAnchor] =
-      useState<Parameters<AnchorContextData['setAnchor']>[0]>();
+  useEffect(() => {
+    if (!infoWindow) {
+      return;
+    }
 
-    const value = useMemo<AnchorContextData>(
-      () => ({
-        setAnchor: (anchor) => setAnchor(anchor),
-      }),
-      [],
-    );
-
-    useEffect(() => {
-      if (!mapsLib?.InfoWindow) {
-        return;
-      }
-
-      const infoWindow = new mapsLib.InfoWindow({
-        ariaLabel,
-        content,
-        disableAutoPan,
-        maxWidth,
-        minWidth,
-        pixelOffset,
-        position,
-        zIndex,
+    if (open) {
+      infoWindow.open({
+        anchor,
+        map,
+        shouldFocus,
       });
+    } else {
+      infoWindow.close();
+    }
+  }, [infoWindow, anchor, open]);
 
-      setInfoWindow(infoWindow);
-      passRef(ref, infoWindow);
-    }, [mapsLib?.InfoWindow]);
+  useEffect(() => {
+    infoWindow?.setContent(content);
+  }, [infoWindow, content]);
 
-    useEffect(() => {
-      if (!infoWindow) {
-        return;
-      }
+  useEffect(() => {
+    infoWindow?.setPosition(position);
+  }, [infoWindow, position?.lat, position?.lng]);
 
-      if (open) {
-        infoWindow.open({
-          anchor,
-          map,
-          shouldFocus,
-        });
-      } else {
-        infoWindow.close();
-      }
-    }, [infoWindow, anchor, open]);
-
-    useEffect(() => {
-      infoWindow?.setContent(content);
-    }, [infoWindow, content]);
-
-    useEffect(() => {
-      infoWindow?.setPosition(position);
-    }, [infoWindow, position?.lat, position?.lng]);
-
-    useEffect(() => {
-      infoWindow?.setOptions({
-        ariaLabel,
-        disableAutoPan,
-        maxWidth,
-        minWidth,
-        pixelOffset,
-        zIndex,
-      });
-    }, [
-      infoWindow,
+  useEffect(() => {
+    infoWindow?.setOptions({
       ariaLabel,
       disableAutoPan,
       maxWidth,
       minWidth,
       pixelOffset,
       zIndex,
-    ]);
-
-    useApplyInfoWindowEvent(infoWindow, {
-      onCloseClick,
-      onContentChanged,
-      onDomReady,
-      onPositionChanged,
-      onVisible,
-      onZIndexChanged,
     });
+  }, [infoWindow, ariaLabel, disableAutoPan, maxWidth, minWidth, pixelOffset, zIndex]);
 
-    return <AnchorProvider value={value}>{children}</AnchorProvider>;
-  },
-);
+  useApplyInfoWindowEvent(infoWindow, {
+    onCloseClick,
+    onContentChanged,
+    onDomReady,
+    onPositionChanged,
+    onVisible,
+    onZIndexChanged,
+  });
+
+  return <AnchorProvider value={value}>{children}</AnchorProvider>;
+});

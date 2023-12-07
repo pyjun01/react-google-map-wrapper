@@ -1,9 +1,10 @@
-import { PinElementProps } from 'src/components/PinElement/type';
 import { useEffect } from 'react';
+
+import { PinElementProps } from 'src/components/PinElement/type';
 
 export const useApplyPinElementOptions = (
   pinElement: google.maps.marker.PinElement | null,
-  { background, borderColor, glyph, glyphColor, scale }: PinElementProps,
+  { background, borderColor, glyph, glyphColor, scale }: PinElementProps
 ) => {
   useEffect(() => {
     if (pinElement) {

@@ -13,11 +13,8 @@ export const useMarkerContext = () => {
   return marker;
 };
 
-export interface MarkerProvider
-  extends PropsWithChildren<{ value: google.maps.Marker }> {}
+export interface MarkerProvider extends PropsWithChildren<{ value: google.maps.Marker }> {}
 
 export function MarkerProvider({ children, value }: MarkerProvider) {
-  return (
-    <MarkerContext.Provider value={value}>{children}</MarkerContext.Provider>
-  );
+  return <MarkerContext.Provider value={value}>{children}</MarkerContext.Provider>;
 }

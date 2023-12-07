@@ -1,30 +1,18 @@
-import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
-import { passRef } from '../../utils/passRef';
-import { useMapContext } from '../Provider/MapProvider';
 import { HeatmapLayerProps } from './type';
 import { useImportLibrary } from '../../hooks/useImportLibrary';
+import { passRef } from '../../utils/passRef';
+import { useMapContext } from '../Provider/MapProvider';
 
-export const HeatmapLayer = forwardRef<
-  google.maps.visualization.HeatmapLayer,
-  HeatmapLayerProps
->(function HeatmapLayer(
-  {
-    data,
-    dissipating,
-    gradient,
-    maxIntensity,
-    opacity,
-    radius,
-    hidden = false,
-  },
-  ref,
+export const HeatmapLayer = forwardRef<google.maps.visualization.HeatmapLayer, HeatmapLayerProps>(function HeatmapLayer(
+  { data, dissipating, gradient, maxIntensity, opacity, radius, hidden = false },
+  ref
 ) {
   const originalMap = useMapContext();
   const map = hidden ? null : originalMap;
   const visualizationLib = useImportLibrary('visualization');
-  const [heatmap, setHeatmap] =
-    useState<google.maps.visualization.HeatmapLayer | null>(null);
+  const [heatmap, setHeatmap] = useState<google.maps.visualization.HeatmapLayer | null>(null);
 
   useEffect(() => {
     if (!visualizationLib?.HeatmapLayer) {

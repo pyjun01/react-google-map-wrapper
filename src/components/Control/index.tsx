@@ -19,9 +19,7 @@ export function Control({ position, children, ...props }: ControlProps) {
     targetControls.push(fragment.current);
 
     return () => {
-      const idx = targetControls
-        .getArray()
-        .findIndex((v) => v === fragment.current);
+      const idx = targetControls.getArray().findIndex((v) => v === fragment.current);
 
       targetControls.removeAt(idx);
     };

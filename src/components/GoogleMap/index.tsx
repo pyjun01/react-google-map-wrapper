@@ -1,11 +1,4 @@
-import {
-  HTMLAttributes,
-  PropsWithChildren,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HTMLAttributes, PropsWithChildren, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { MapEvent } from './type';
 import { useApplyMapOptions } from '../../../src/hooks/useApplyMapOptions';
@@ -26,103 +19,96 @@ export interface GoogleMapProps extends PropsWithChildren<MapEvent> {
   containerProps?: HTMLAttributes<HTMLDivElement>;
 }
 
-export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(
-  function GoogleMap(
-    {
-      children,
-      onLoad,
-      // MapOptions
-      initialCenter,
-      initialZoom,
-      zoom,
-      center,
-      mapOptions = {},
-      // MapEvent
-      onBoundsChanged,
-      onCenterChanged,
-      onClick,
-      onContextmenu,
-      onDblclick,
-      onDrag,
-      onDragEnd,
-      onDragStart,
-      onHeadingChanged,
-      onIdle,
-      onIsFractionalZoomEnabledChanged,
-      onMapCapabilitiesChanged,
-      onMapTypeIdChanged,
-      onMouseMove,
-      onMouseOut,
-      onMouseOver,
-      onProjectionChanged,
-      onRenderingTypeChanged,
-      onTilesLoaded,
-      onTiltChanged,
-      onZoomChanged,
-      style,
-      className,
-      containerProps = {},
-    },
-    ref,
-  ) {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const mapsLib = useImportLibrary('maps');
-    const [map, setMap] = useState<google.maps.Map | null>(null);
+export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(function GoogleMap(
+  {
+    children,
+    onLoad,
+    // MapOptions
+    initialCenter,
+    initialZoom,
+    zoom,
+    center,
+    mapOptions = {},
+    // MapEvent
+    onBoundsChanged,
+    onCenterChanged,
+    onClick,
+    onContextmenu,
+    onDblclick,
+    onDrag,
+    onDragEnd,
+    onDragStart,
+    onHeadingChanged,
+    onIdle,
+    onIsFractionalZoomEnabledChanged,
+    onMapCapabilitiesChanged,
+    onMapTypeIdChanged,
+    onMouseMove,
+    onMouseOut,
+    onMouseOver,
+    onProjectionChanged,
+    onRenderingTypeChanged,
+    onTilesLoaded,
+    onTiltChanged,
+    onZoomChanged,
+    style,
+    className,
+    containerProps = {},
+  },
+  ref
+) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapsLib = useImportLibrary('maps');
+  const [map, setMap] = useState<google.maps.Map | null>(null);
 
-    useEffect(() => {
-      if (!mapsLib?.Map) {
-        return;
-      }
+  useEffect(() => {
+    if (!mapsLib?.Map) {
+      return;
+    }
 
-      const map = new mapsLib.Map(containerRef.current!, {
-        center: initialCenter || center || mapOptions.center,
-        zoom: initialZoom || zoom || mapOptions.zoom,
-        ...mapOptions,
-      });
-
-      setMap(map);
-      onLoad?.(map);
-
-      passRef(ref, map);
-    }, [mapsLib?.Map]);
-
-    useApplyMapOptions(map, {
+    const map = new mapsLib.Map(containerRef.current!, {
+      center: initialCenter || center || mapOptions.center,
+      zoom: initialZoom || zoom || mapOptions.zoom,
       ...mapOptions,
     });
 
-    useApplyMapEvent(map, {
-      onBoundsChanged,
-      onCenterChanged,
-      onClick,
-      onContextmenu,
-      onDblclick,
-      onDrag,
-      onDragEnd,
-      onDragStart,
-      onHeadingChanged,
-      onIdle,
-      onIsFractionalZoomEnabledChanged,
-      onMapCapabilitiesChanged,
-      onMapTypeIdChanged,
-      onMouseMove,
-      onMouseOut,
-      onMouseOver,
-      onProjectionChanged,
-      onRenderingTypeChanged,
-      onTilesLoaded,
-      onTiltChanged,
-      onZoomChanged,
-    });
+    setMap(map);
+    onLoad?.(map);
 
-    return (
-      <div
-        {...containerProps}
-        style={style || containerProps.style}
-        className={className || containerProps.className}
-        ref={containerRef}
-      >
-        {map && <MapProvider value={map}>{children}</MapProvider>}
-      </div>
-    );
-  },
-);
+    passRef(ref, map);
+  }, [mapsLib?.Map]);
+
+  useApplyMapOptions(map, {
+    ...mapOptions,
+  });
+
+  useApplyMapEvent(map, {
+    onBoundsChanged,
+    onCenterChanged,
+    onClick,
+    onContextmenu,
+    onDblclick,
+    onDrag,
+    onDragEnd,
+    onDragStart,
+    onHeadingChanged,
+    onIdle,
+    onIsFractionalZoomEnabledChanged,
+    onMapCapabilitiesChanged,
+    onMapTypeIdChanged,
+    onMouseMove,
+    onMouseOut,
+    onMouseOver,
+    onProjectionChanged,
+    onRenderingTypeChanged,
+    onTilesLoaded,
+    onTiltChanged,
+    onZoomChanged,
+  });
+
+  return (
+    <div {...containerProps} style={style || containerProps.style} className={className || containerProps.className} ref={containerRef}>
+      {map && <MapProvider value={map}>{children}</MapProvider>}
+    </div>
+  );
+});

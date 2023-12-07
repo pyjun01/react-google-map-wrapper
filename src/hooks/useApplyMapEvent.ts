@@ -25,7 +25,7 @@ export const useApplyMapEvent = (
     onTilesLoaded,
     onTiltChanged,
     onZoomChanged,
-  }: MapEvent,
+  }: MapEvent
 ) => {
   useMvcObjectEventEffect(map, 'bounds_changed', onBoundsChanged);
   useMvcObjectEventEffect(map, 'center_changed', onCenterChanged);
@@ -37,16 +37,8 @@ export const useApplyMapEvent = (
   useMvcObjectEventEffect(map, 'dragstart', onDragStart);
   useMvcObjectEventEffect(map, 'heading_changed', onHeadingChanged);
   useMvcObjectEventEffect(map, 'idle', onIdle);
-  useMvcObjectEventEffect(
-    map,
-    'isfractionalzoomenabled_changed',
-    onIsFractionalZoomEnabledChanged,
-  );
-  useMvcObjectEventEffect(
-    map,
-    'mapcapabilities_changed',
-    onMapCapabilitiesChanged,
-  );
+  useMvcObjectEventEffect(map, 'isfractionalzoomenabled_changed', onIsFractionalZoomEnabledChanged);
+  useMvcObjectEventEffect(map, 'mapcapabilities_changed', onMapCapabilitiesChanged);
   useMvcObjectEventEffect(map, 'maptypeid_changed', onMapTypeIdChanged);
   useMvcObjectEventEffect(map, 'mousemove', onMouseMove);
   useMvcObjectEventEffect(map, 'mouseout', onMouseOut);

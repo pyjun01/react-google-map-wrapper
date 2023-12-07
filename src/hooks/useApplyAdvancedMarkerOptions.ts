@@ -1,17 +1,10 @@
-import { AdvancedMarkerProps } from 'src/components/AdvancedMarker/type';
 import { useEffect } from 'react';
+
+import { AdvancedMarkerProps } from 'src/components/AdvancedMarker/type';
 
 export const useApplyAdvancedMarkerOptions = (
   advancedMarker: google.maps.marker.AdvancedMarkerElement | null,
-  {
-    lat,
-    lng,
-    collisionBehavior,
-    content,
-    gmpDraggable,
-    title,
-    zIndex,
-  }: AdvancedMarkerProps,
+  { lat, lng, collisionBehavior, content, gmpDraggable, title, zIndex }: AdvancedMarkerProps
 ) => {
   useEffect(() => {
     if (advancedMarker) {

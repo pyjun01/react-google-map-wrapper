@@ -7,10 +7,7 @@ export interface OverlayMarker extends google.maps.OverlayView {
   draggable: boolean;
   eventMap: Map<String, (position: google.maps.LatLngLiteral) => void>;
 
-  addDragEventListener(
-    key: string,
-    fn: (position: google.maps.LatLngLiteral) => void,
-  ): () => void;
+  addDragEventListener(key: string, fn: (position: google.maps.LatLngLiteral) => void): () => void;
   updatePosition(position: google.maps.LatLngLiteral): void;
   setDraggable(draggable: boolean);
 }

@@ -25,7 +25,7 @@ export const useApplyMarkerEvent = (
     onTitleChanged,
     onVisibleChanged,
     onZindexChanged,
-  }: MarkerEvent,
+  }: MarkerEvent
 ) => {
   useMvcObjectEventEffect(marker, 'animation_changed', onAnimationChanged);
   useMvcObjectEventEffect(marker, 'click', onClick);

@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 
-export const useMvcObjectEventEffect = (
-  tg: Pick<google.maps.MVCObject, 'addListener'> | null,
-  key: string,
-  callback: Function | undefined,
-) =>
+export const useMvcObjectEventEffect = (tg: Pick<google.maps.MVCObject, 'addListener'> | null, key: string, callback: Function | undefined) =>
   useEffect(() => {
     if (!tg || !callback) {
       return;

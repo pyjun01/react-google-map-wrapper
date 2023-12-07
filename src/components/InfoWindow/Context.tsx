@@ -10,8 +10,6 @@ export const AnchorContext = createContext<AnchorContextData>({
 
 export const useSetAnchor = () => useContext(AnchorContext).setAnchor;
 
-export function AnchorProvider(
-  props: ComponentProps<typeof AnchorContext.Provider>,
-) {
+export function AnchorProvider(props: ComponentProps<typeof AnchorContext.Provider>) {
   return <AnchorContext.Provider {...props} />;
 }

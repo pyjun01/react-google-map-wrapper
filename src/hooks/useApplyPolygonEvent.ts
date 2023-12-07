@@ -4,19 +4,7 @@ import { useMvcObjectEventEffect } from './useMvcObjectEventEffect';
 
 export const useApplyPolygonEvent = (
   polygon: google.maps.Polygon | null,
-  {
-    onClick,
-    onContextmenu,
-    onDblClick,
-    onDrag,
-    onDragEnd,
-    onDragStart,
-    onMouseDown,
-    onMouseMove,
-    onMouseOut,
-    onMouseOver,
-    onMouseUp,
-  }: PolygonEvent,
+  { onClick, onContextmenu, onDblClick, onDrag, onDragEnd, onDragStart, onMouseDown, onMouseMove, onMouseOut, onMouseOver, onMouseUp }: PolygonEvent
 ) => {
   useMvcObjectEventEffect(polygon, 'click', onClick);
   useMvcObjectEventEffect(polygon, 'contextmenu', onContextmenu);

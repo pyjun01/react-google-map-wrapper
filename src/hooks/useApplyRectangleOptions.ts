@@ -4,7 +4,7 @@ import { RectangleEvent, RectangleProps } from '../components/Rectangle/type';
 
 export const useApplyRectangleOptions = (
   polyline: google.maps.Rectangle | null,
-  { bounds, ...options }: Omit<RectangleProps, keyof RectangleEvent>,
+  { bounds, ...options }: Omit<RectangleProps, keyof RectangleEvent>
 ) => {
   useEffect(() => {
     polyline?.setOptions(options);

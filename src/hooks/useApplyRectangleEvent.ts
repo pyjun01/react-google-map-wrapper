@@ -17,7 +17,7 @@ export const useApplyRectangleEvent = (
     onMouseOut,
     onMouseOver,
     onMouseUp,
-  }: RectangleEvent,
+  }: RectangleEvent
 ) => {
   useMvcObjectEventEffect(rectangle, 'bounds_changed', onBoundsChanged);
   useMvcObjectEventEffect(rectangle, 'click', onClick);
