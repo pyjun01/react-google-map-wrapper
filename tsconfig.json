@@ -14,7 +14,7 @@
     "module": "es2022",
     "target": "es2021",
     "noImplicitAny": false,
-    "types": ["vite/client", "google.maps", "node"],
+    "types": ["vite/client", "google.maps"],
     "paths": {
       "@@*": ["./src/*"]
     }

@@ -2,3 +2,4 @@
 .eslintrc.js
 .prettierrc.js
 node_modules/
+*.d.mts
