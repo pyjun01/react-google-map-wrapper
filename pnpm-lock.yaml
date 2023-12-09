@@ -25,6 +25,9 @@ devDependencies:
   '@mvlchain/prettier-config':
     specifier: ^1.0.1
     version: 1.0.1(prettier@3.0.3)
+  '@types/google.maps':
+    specifier: ^3.54.10
+    version: 3.54.10
   '@types/react':
     specifier: ^18.2.33
     version: 18.2.33
@@ -444,6 +447,10 @@ packages:
 
   /@types/chai@4.3.9:
     resolution: {integrity: sha512-69TtiDzu0bcmKQv3yg1Zx409/Kd7r0b5F1PfpYJfSHzLGtB53547V4u+9iqKYsTu/O2ai6KTb0TInNpvuQ3qmg==}
+    dev: true
+
+  /@types/google.maps@3.54.10:
+    resolution: {integrity: sha512-N6gwM01mKhooXaw+IKbUH7wJcIJCn8U60VoaVvom5EiQjmfgevhQ+0+/r17beXW5j8ad2x+WPr0iyOUodCw4/w==}
     dev: true
 
   /@types/json-schema@7.0.14:

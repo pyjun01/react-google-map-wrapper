@@ -23,6 +23,7 @@
   "funding": "https://github.com/sponsors/pyjun01",
   "license": "MIT",
   "author": "Yongjun Park",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
