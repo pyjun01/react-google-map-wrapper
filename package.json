@@ -50,12 +50,9 @@
     "@types/google.maps": ">=3.50.5"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.2",
     "@googlemaps/markerclusterer": "^2.5.1",
-    "@types/google.maps": "^3.54.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "unplugin": "^1.4.0",
     "zustand": "^4.4.5"
   },
   "devDependencies": {
