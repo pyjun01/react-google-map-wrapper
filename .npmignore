@@ -1,5 +1,9 @@
+.github
 .vscode
-.eslintrc.js
-.prettierrc.js
+docs
 node_modules/
+.eslintignore
+.eslintrc.js
+.prettierignore
+.prettierrc.js
 *.d.mts
