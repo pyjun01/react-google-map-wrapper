@@ -1,0 +1,46 @@
+---
+title: Quick Start
+---
+
+import { QuickStart } from '../../../components/QuickStart';
+
+- **You need to set `height` of map.** (see the example below)
+- If you want to access to the <a href='https://developers.google.com/maps/documentation/javascript/reference/map#Map' target='_blank' rel='noreferrer'>map</a> instance, we recommend using `useMapContext` inside of `GoogleMap` component. (or you can using `ref`)
+- **Currently we don't support SSR. Please use it with CSR only.**
+
+<br />
+<hr />
+<br />
+
+If you're looking for a complex example, please have a look at our [examples](/).
+
+```tsx
+import { Suspense } from 'react';
+import { GoogleMap, GoogleMapApiLoader, Marker } from 'react-google-map-wrapper';
+import { Fallback } from '../components';
+
+function App() {
+  return (
+    <Suspense fallback={<Fallback />}>
+      {/* Load the google map api */}
+      <GoogleMapApiLoader apiKey='YOUR_API_KEY' suspense>
+        <Map />
+      </GoogleMapApiLoader>
+    </Suspense>
+  );
+}
+
+function Map() {
+  return (
+    // you can pass props to map container element.
+    // use Tailwind CSS or styled-components or anything to style your container.
+    <GoogleMap className='h-[400px]' zoom={17} center={{ lat: 37.5709413, lng: 126.977787 }}>
+      <Marker lat={37.5709413} lng={126.977787} />
+    </GoogleMap>
+  );
+}
+
+render(<App />, document.getElementById('root'));
+```
+
+<QuickStart client:only='react' />

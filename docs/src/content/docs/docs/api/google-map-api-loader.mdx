@@ -1,0 +1,64 @@
+---
+title: GoogleMapApiLoader
+description: description
+---
+
+`GoogleMapApiLoader` is a React component for loading the Google Maps API.
+
+### Basic Example
+
+```tsx
+function App() {
+  return (
+    <Suspense>
+      <GoogleMapApiLoader
+        apiKey='YOUR_API_KEY'
+        suspense
+      >
+        {/* You can create map here */}
+        <MyMap />
+      </GoogleMapApiLoader>
+    </Suspense>
+  );
+}
+
+// or
+function App() {
+  const loadingStatus = useApiLoadingStatus();
+
+  return (
+    <GoogleMapApiLoader
+      apiKey='YOUR_API_KEY'
+    >
+      {
+        loadingStatus === LoadingStatus.SUCCESS && (
+          // You can create map here
+          <MyMap />
+        )
+      }
+    </GoogleMapApiLoader>
+  );
+}
+```
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| apiKey | `string` | Your Google Maps API Key |
+| suspense | `boolean` | flag for using suspense |
+| onSuccess | `(core: google.maps.CoreLibrary) => void` | callback for loading success |
+| onFailure | `(reason: unknown) => void` | callback for loading failure |
+| v | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/load-maps-js-api#optional_parameters' target='_blank' rel='noreferrer'>official documentation</a>. |
+| libraries | `string \| string[]` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/load-maps-js-api#optional_parameters' target='_blank' rel='noreferrer'>official documentation</a>. |
+| language | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/load-maps-js-api#optional_parameters' target='_blank' rel='noreferrer'>official documentation</a>. |
+| region | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/load-maps-js-api#optional_parameters' target='_blank' rel='noreferrer'>official documentation</a>. |
+| authReferrerPolicy | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/load-maps-js-api#optional_parameters' target='_blank' rel='noreferrer'>official documentation</a>. |
+
+### Loading Status
+
+You can use `useApiLoadingStatus` hooks to get the loading status.
+
+### Legacy script loading tag
+
+If you're using the [legacy script loading tag](https://developers.google.com/maps/documentation/javascript/load-maps-js-api#use-legacy-tag), you don't need to use this component.

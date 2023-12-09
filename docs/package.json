@@ -1,0 +1,27 @@
+{
+  "name": "react-google-map-wrapper-docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.1",
+    "@astrojs/react": "^3.0.7",
+    "@astrojs/starlight": "^0.15.0",
+    "@astrojs/tailwind": "^5.0.3",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "astro": "^4.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-map-wrapper": "../",
+    "sharp": "^0.32.5",
+    "tailwindcss": "^3.3.6",
+    "typescript": "^5.3.3"
+  }
+}

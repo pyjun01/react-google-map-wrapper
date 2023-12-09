@@ -1,0 +1,8 @@
+.sl-markdown-content a:not(:where(.not-content *)) {
+  text-decoration: underline;
+}
+
+.sl-markdown-content ul:not(:where(.not-content *)) {
+  padding-inline-start: 20px;
+  list-style: circle;
+}
