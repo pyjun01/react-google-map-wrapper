@@ -5,7 +5,7 @@ import { ApiLoadConfig } from '../../types';
 import { appendLibImportScript } from '../../utils/appendScript';
 
 export interface GoogleMapApiLoaderProps extends PropsWithChildren<ApiLoadConfig> {
-  suspense?: unknown;
+  suspense?: boolean;
   onSuccess?: (core: google.maps.CoreLibrary) => void;
   onFailure?: (reason: unknown) => void;
 }
