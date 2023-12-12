@@ -56,6 +56,10 @@ export default defineConfig({
                   link: '/docs/api/pin-element',
                 },
                 {
+                  label: 'MarkerClusterer 🛠',
+                  link: '/docs/api/marker-clusterer',
+                },
+                {
                   label: 'Control 🛠',
                   link: '/docs/api/control',
                 },
