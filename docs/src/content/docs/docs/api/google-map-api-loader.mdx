@@ -3,14 +3,14 @@ title: GoogleMapApiLoader
 description: description
 ---
 
-`GoogleMapApiLoader` is a React component for loading the Google Maps API.
+`<GoogleMapApiLoader />` component is used for load the Google Maps API.
 
 ### Basic Example
 
 ```tsx
 function App() {
   return (
-    <Suspense>
+    <Suspense fallback={...}>
       <GoogleMapApiLoader
         apiKey='YOUR_API_KEY'
         suspense

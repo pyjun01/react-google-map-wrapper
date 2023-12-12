@@ -36,7 +36,7 @@ export default defineConfig({
                   link: '/docs/api/google-map-api-loader',
                 },
                 {
-                  label: 'GoogleMap 🛠',
+                  label: 'GoogleMap',
                   link: '/docs/api/google-map',
                 },
                 {
