@@ -10,7 +10,7 @@ import { useMapContext } from '../Provider/MapProvider';
 let classCache;
 
 export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(function CustomMarker(
-  { children, lat, lng, draggable, skipDragOnClickable = true, onDragStart, onDrag, onDragEnd },
+  { children, lat, lng, draggable, preventDragOnClickable = true, onDragStart, onDrag, onDragEnd },
   ref
 ) {
   const [OverlayMarker] = useState(
@@ -36,7 +36,7 @@ export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(functio
           map: google.maps.Map;
           content: Node;
           position: google.maps.LatLng | google.maps.LatLngLiteral;
-          draggable: unknown;
+          draggable: boolean;
         }) {
           super();
 
@@ -96,7 +96,7 @@ export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(functio
           this.container.addEventListener(
             'mousedown',
             (this.mounseDownHandler = (e) => {
-              if (skipDragOnClickable && ['A', 'BUTTON'].includes((e.target as HTMLElement).tagName)) {
+              if (preventDragOnClickable && ['A', 'BUTTON'].includes((e.target as HTMLElement).tagName)) {
                 return;
               }
 

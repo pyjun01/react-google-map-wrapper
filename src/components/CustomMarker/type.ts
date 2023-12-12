@@ -22,6 +22,6 @@ export interface CustomMarkerProps extends CustomMarkerEvent {
   children?: ReactNode;
   lat: number;
   lng: number;
-  draggable?: unknown;
-  skipDragOnClickable?: unknown;
+  draggable?: boolean;
+  preventDragOnClickable?: boolean;
 }
