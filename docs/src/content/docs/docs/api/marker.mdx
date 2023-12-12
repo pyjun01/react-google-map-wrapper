@@ -3,4 +3,81 @@ title: Marker
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { MarkerEx } from '../../../../components/api/Marker';
+
+`<Marker />` component is used for display <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker' target='_blank' rel='noreferrer'>Marker</a>.
+
+### Basic Example
+
+```tsx
+function MyMap() {
+  return (
+    <GoogleMap
+      center={{ lat: 37.5111158, lng: 127.098167 }}
+      {...}
+    >
+      <Marker lat={37.5111158} lng={127.098167} title='Lotte World' />
+      {/* draggable */}
+      <Marker lat={37.5111158} lng={127.096167} title={'I\'m draggable'} draggable />
+    </GoogleMap>
+  );
+}
+```
+
+<MarkerEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| lat | `number` | latitude |
+| lng | `number` | longitude |
+| draggable | `boolean` | flag for draggable feature |
+| anchorPoint | `google.maps.Point` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| animation | `google.maps.Animation` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| clickable | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| collisionBehavior | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| crossOnDrag | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| cursor | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| draggable | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| icon | `string \| google.maps.Icon \|google.maps.Symbol` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| label | `string \| google.maps.MarkerLabel` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| opacity | `number` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| optimized | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| shape | `google.maps.MarkerShape` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| title | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| visible | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| zIndex | `number` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onAnimationChanged | `(marker: google.maps.Marker) => void` | callback for `animation_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onClick | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onClickableChanged | `(marker: google.maps.Marker) => void` | callback for `clickable_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onContextMenu | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `contextmenu` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onCursorChanged | `(marker: google.maps.Marker) => void` | callback for `cursor_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDblClick | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `dblclick` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDrag | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `drag` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragEnd | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `dragend` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDraggableChanged | `(marker: google.maps.Marker) => void` | callback for `draggable_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragStart | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `dragstart` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onFlatChanged | `(marker: google.maps.Marker) => void` | callback for `flat_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onIconChanged | `(marker: google.maps.Marker) => void` | callback for `icon_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseDown | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `mousedown` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOut | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `mouseout` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOver | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `mouseover` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseUp | `(marker: google.maps.Marker, event: google.maps.MapMouseEvent) => void` | callback for `mouseup` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onPositionChanged | `(marker: google.maps.Marker) => void` | callback for `position_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onShapeChanged | `(marker: google.maps.Marker) => void` | callback for `shape_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onTitleChanged | `(marker: google.maps.Marker) => void` | callback for `title_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onVisibleChanged | `(marker: google.maps.Marker) => void` | callback for `visible_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onZindexChanged | `(marker: google.maps.Marker) => void` | callback for `zindex_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/marker#Marker-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+
+### Render custom HTML Marker
+
+Please refer to [CustomMarker page](/react-google-map-wrapper/docs/api/custom-marker).
+
+### Conenct to the InfoWindow
+
+Please refer to [InfoWindow page](/react-google-map-wrapper/docs/api/info-window).
+
+### Marker Clustering
+
+Please refer to [MarkerClusterer page](/react-google-map-wrapper/docs/api/marker-clusterer).

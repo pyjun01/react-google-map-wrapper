@@ -40,7 +40,7 @@ export default defineConfig({
                   link: '/docs/api/google-map',
                 },
                 {
-                  label: 'Marker 🛠',
+                  label: 'Marker',
                   link: '/docs/api/marker',
                 },
                 {
