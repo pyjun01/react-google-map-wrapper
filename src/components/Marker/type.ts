@@ -25,6 +25,5 @@ export interface MarkerEvent {
 export interface MarkerProps extends Omit<google.maps.MarkerOptions, 'position' | 'map' | 'draggable'>, MarkerEvent {
   lat: number;
   lng: number;
-  draggable?: unknown;
-  skipDragOnClickable?: unknown;
+  draggable?: boolean;
 }
