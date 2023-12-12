@@ -20,6 +20,8 @@ export * from './Circle/index';
 export * from './Circle/type';
 export * from './HeatmapLayer/index';
 export * from './HeatmapLayer/type';
+export * from './MarkerClusterer/index';
+export * from './MarkerClusterer/type';
 export * from './AdvancedMarker/index';
 export * from './AdvancedMarker/type';
 export * from './PinElement/index';
