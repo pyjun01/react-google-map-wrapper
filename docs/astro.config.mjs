@@ -48,12 +48,8 @@ export default defineConfig({
                   link: '/docs/api/custom-marker',
                 },
                 {
-                  label: 'AdvancedMarker 🛠',
+                  label: 'AdvancedMarker (w/ PinElement)',
                   link: '/docs/api/advanced-marker',
-                },
-                {
-                  label: 'PinElement 🛠',
-                  link: '/docs/api/pin-element',
                 },
                 {
                   label: 'MarkerClusterer 🛠',
