@@ -44,7 +44,7 @@ export default defineConfig({
                   link: '/docs/api/marker',
                 },
                 {
-                  label: 'CustomMarker 🛠',
+                  label: 'CustomMarker',
                   link: '/docs/api/custom-marker',
                 },
                 {
