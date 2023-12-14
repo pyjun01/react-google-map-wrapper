@@ -89,15 +89,15 @@ export default defineConfig({
               label: 'Hooks',
               items: [
                 {
-                  label: 'useMapContext 🛠',
+                  label: 'useMapContext',
                   link: '/docs/api/use-map-context',
                 },
                 {
-                  label: 'useImportLibrary 🛠',
+                  label: 'useImportLibrary',
                   link: '/docs/api/use-import-library',
                 },
                 {
-                  label: 'useApiLoadingStatus 🛠',
+                  label: 'useApiLoadingStatus',
                   link: '/docs/api/use-api-loading-status',
                 },
               ],
@@ -106,11 +106,11 @@ export default defineConfig({
               label: 'etc',
               items: [
                 {
-                  label: 'LoadingStatus 🛠',
+                  label: 'LoadingStatus',
                   link: '/docs/api/loading-status',
                 },
                 {
-                  label: 'appendLibImportScript 🛠',
+                  label: 'appendLibImportScript',
                   link: '/docs/api/append-lib-import-script',
                 },
               ],

@@ -3,4 +3,27 @@ title: useApiLoadingStatus
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+`useApiLoadingStatus` hooks is used for get current <a href='./loading-status'>LoadingStatus</a>.
+
+In most cases, you won't need to use it.
+
+### Basic Example
+
+```tsx
+function App() {
+  const loadingStatus = useApiLoadingStatus();
+
+  return (
+    <GoogleMapApiLoader
+      apiKey='YOUR_API_KEY'
+    >
+      {
+        loadingStatus === LoadingStatus.SUCCESS && (
+          // now you can use Google Map API.
+          <MyMap />
+        )
+      }
+    </GoogleMapApiLoader>
+  );
+}
+```

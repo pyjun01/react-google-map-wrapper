@@ -3,4 +3,11 @@ title: useImportLibrary
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+`useImportLibrary` hooks is a wrapper of <a href='https://developers.google.com/maps/documentation/javascript/reference/top-level#google.maps.importLibrary' target='_blank' rel='noreferrer'>importLibrary</a>
+
+### function type
+
+```ts
+<Name extends LibraryName, Lib = LibraryMap[Name]>(libName: Name) => Lib | null;
+```
+
