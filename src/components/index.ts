@@ -27,5 +27,4 @@ export * from './AdvancedMarker/type';
 export * from './PinElement/index';
 export * from './PinElement/type';
 export * from './Provider/MapProvider';
-export * from './Provider/MarkerProvider';
 export * from './Provider/CustomMarkerProvider';
