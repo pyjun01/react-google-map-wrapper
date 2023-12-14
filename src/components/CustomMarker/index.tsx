@@ -4,7 +4,6 @@ import { createPortal } from 'react-dom';
 
 import { CustomMarkerProps, OverlayMarker } from './type';
 import { passRef } from '../../utils/passRef';
-import { CustomMarkerProvider } from '../Provider/CustomMarkerProvider';
 import { useMapContext } from '../Provider/MapProvider';
 import { useOverlayMarker } from './hooks';
 import { useEvent } from '@@hooks/useEvent';
@@ -64,5 +63,5 @@ export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(functio
     marker?.setPreventDragOnClickable(preventDragOnClickable);
   }, [preventDragOnClickable]);
 
-  return createPortal(marker && <CustomMarkerProvider value={marker}>{children}</CustomMarkerProvider>, fragment.current);
+  return createPortal(<>{children}</>, fragment.current);
 });

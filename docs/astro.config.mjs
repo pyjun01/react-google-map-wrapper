@@ -93,10 +93,6 @@ export default defineConfig({
                   link: '/docs/api/use-map-context',
                 },
                 {
-                  label: 'useCustomMarkerContext 🛠',
-                  link: '/docs/api/use-custom-marker-context',
-                },
-                {
                   label: 'useImportLibrary 🛠',
                   link: '/docs/api/use-import-library',
                 },

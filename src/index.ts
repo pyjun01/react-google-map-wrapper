@@ -14,7 +14,6 @@ import {
   GoogleMap,
   GoogleMapApiLoader,
   useMapContext,
-  useCustomMarkerContext,
 } from './components';
 import type {
   ControlProps,
@@ -57,7 +56,6 @@ export {
   GoogleMap,
   GoogleMapApiLoader,
   useMapContext,
-  useCustomMarkerContext,
   useImportLibrary,
   LoadingStatus,
   useApiLoadingStatus,
@@ -104,7 +102,6 @@ export default {
   GoogleMap,
   GoogleMapApiLoader,
   useMapContext,
-  useCustomMarkerContext,
   useImportLibrary,
   LoadingStatus,
   useApiLoadingStatus,
