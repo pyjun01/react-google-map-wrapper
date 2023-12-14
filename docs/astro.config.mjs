@@ -52,7 +52,7 @@ export default defineConfig({
                   link: '/docs/api/advanced-marker',
                 },
                 {
-                  label: 'MarkerClusterer 🛠',
+                  label: 'MarkerClusterer',
                   link: '/docs/api/marker-clusterer',
                 },
                 {
