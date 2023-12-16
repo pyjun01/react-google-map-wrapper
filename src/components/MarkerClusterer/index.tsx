@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import { MarkerClusterer as MarkerClustererClass, MarkerClustererOptions } from '@googlemaps/markerclusterer';
+import * as MarkerClustererModule from '@googlemaps/markerclusterer';
+import type { MarkerClustererOptions } from '@googlemaps/markerclusterer';
 
 import { MarkerClustererProvider } from './Context';
 import { MarkerClustererProps } from './type';
@@ -8,9 +9,9 @@ import { passRef } from '../../utils/passRef';
 import { useMapContext } from '../Provider/MapProvider';
 import { useEvent } from '../../hooks/useEvent';
 
-const createMarkerClusterer = (options: MarkerClustererOptions) => new MarkerClustererClass(options);
+const createMarkerClusterer = (options: MarkerClustererOptions) => new MarkerClustererModule.MarkerClusterer(options);
 
-export const MarkerClusterer = forwardRef<MarkerClustererClass, MarkerClustererProps>(function MarkerClusterer(
+export const MarkerClusterer = forwardRef<MarkerClustererModule.MarkerClusterer, MarkerClustererProps>(function MarkerClusterer(
   { children, algorithmOptions, algorithm, renderer, onClusterClick = null },
   ref
 ) {
