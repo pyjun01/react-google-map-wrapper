@@ -1,4 +1,4 @@
-import { AdvancedMarker, GoogleMap, Marker, MarkerClusterer, PinElement } from "react-google-map-wrapper";
+import { GoogleMap, Marker, MarkerClusterer } from "react-google-map-wrapper";
 
 import { Container } from "../../Container";
 
