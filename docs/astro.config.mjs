@@ -56,7 +56,7 @@ export default defineConfig({
                   link: '/docs/api/marker-clusterer',
                 },
                 {
-                  label: 'Control 🛠',
+                  label: 'Control',
                   link: '/docs/api/control',
                 },
                 {
