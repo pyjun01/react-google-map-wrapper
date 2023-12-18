@@ -3,4 +3,64 @@ title: Polyline
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { PolylineEx } from '../../../../components/api/Polyline';
+
+`<Polyline />` component is used for draw a line on your map. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/shapes#polylines' target='_blank' rel='noreferrer'>official google map documentation</a>.
+
+### Basic Example
+
+```tsx
+const flightPlanCoordinates = [
+  { lat: 37.772, lng: -122.214 },
+  { lat: 21.291, lng: -157.821 },
+  { lat: -18.142, lng: 178.431 },
+  { lat: -27.467, lng: 153.027 },
+];
+
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      initialZoom={3}
+      initialCenter={{ lat: 0, lng: -180 }}
+    >
+      <Polyline
+        path={flightPlanCoordinates}
+        strokeColor="#FF0000"
+        strokeOpacity={1.0}
+        strokeWeight={2}
+        geodesic
+      />
+    </GoogleMap>
+  );
+}
+```
+
+<PolylineEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| clickable | `boolean` | Indicates whether this `Polyline` handles mouse events. |
+| draggable | `boolean` | if flag is set to `true`, the user can drag Polyline over the map. |
+| editable | `boolean` | if flag is set to `true`, the user can edit Polyline by dragging the control points shown at the vertices and on each segment. |
+| geodesic | `boolean` | if flag is set to `true`, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth. |
+| icons | `google.maps.IconSequence[]` | The icons to be rendered along the polyline. |
+| path | `google.maps.MVCArray<google.maps.LatLng> \| Array<google.maps.LatLng \| google.maps.LatLngLiteral>` | The ordered sequence of coordinates of the Polyline. |
+| strokeColor | `string` | The stroke color. All CSS3 colors are supported except for extended named colors. |
+| strokeOpacity | `number` | The stroke opacity between 0.0 and 1.0. |
+| strokeWeight | `number` | The stroke width in pixels. |
+| visible | `boolean` | Whether this polyline is visible on the map. |
+| zIndex | `number` | zIndex for Polyline. |
+| onClick | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onContextmenu | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `contextmenu` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDblClick | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `dblclick` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDrag | `(polyline: google.maps.Polyline, event: google.maps.MapMouseEvent) => void` | callback for `drag` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragEnd | `(polyline: google.maps.Polyline, event: google.maps.MapMouseEvent) => void` | callback for `dragend` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragStart | `(polyline: google.maps.Polyline, event: google.maps.MapMouseEvent) => void` | callback for `dragstart` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseDown | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `mousedown` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseMove | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `mousemove` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOut | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `mouseout` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOver | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `mouseover` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseUp | `(polyline: google.maps.Polyline, event: google.maps.PolyMouseEvent) => void` | callback for `mouseup` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Polyline-Events' target='_blank' rel='noreferrer'>official documentation</a>. |

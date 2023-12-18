@@ -1,27 +1,32 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import { MarkerClusterer as MarkerClustererClass, MarkerClustererOptions } from '@googlemaps/markerclusterer';
+import * as MarkerClustererModule from '@googlemaps/markerclusterer';
+import type { MarkerClustererOptions } from '@googlemaps/markerclusterer';
 
 import { MarkerClustererProvider } from './Context';
 import { MarkerClustererProps } from './type';
 import { passRef } from '../../utils/passRef';
 import { useMapContext } from '../Provider/MapProvider';
+import { useEvent } from '../../hooks/useEvent';
 
-const createMarkerClusterer = (options: MarkerClustererOptions) => new MarkerClustererClass(options);
+const createMarkerClusterer = (options: MarkerClustererOptions) => new MarkerClustererModule.MarkerClusterer(options);
 
-export const MarkerClusterer = forwardRef<MarkerClustererClass, MarkerClustererProps>(function MarkerClusterer(
-  { children, algorithmOptions, algorithm, renderer, onClusterClick },
+export const MarkerClusterer = forwardRef<MarkerClustererModule.MarkerClusterer, MarkerClustererProps>(function MarkerClusterer(
+  { children, algorithmOptions, algorithm, renderer, onClusterClick = null },
   ref
 ) {
   const map = useMapContext();
   const markers = useRef(new Set<google.maps.Marker | google.maps.marker.AdvancedMarkerElement>());
+
+  const onCachedClusterClick = useEvent(onClusterClick);
+
   const markerCluster = useRef(
     createMarkerClusterer({
       map,
       algorithmOptions,
       algorithm,
       renderer,
-      onClusterClick,
+      onClusterClick: onCachedClusterClick ?? undefined,
     })
   );
 
@@ -45,9 +50,9 @@ export const MarkerClusterer = forwardRef<MarkerClustererClass, MarkerClustererP
       algorithmOptions,
       algorithm,
       renderer,
-      onClusterClick,
+      onClusterClick: onCachedClusterClick ?? undefined,
     });
-  }, [algorithmOptions, algorithm, renderer, onClusterClick]);
+  }, [algorithmOptions, algorithm, renderer]);
 
   return <MarkerClustererProvider value={value}>{children}</MarkerClustererProvider>;
 });

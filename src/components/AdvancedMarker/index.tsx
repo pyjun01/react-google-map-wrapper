@@ -99,5 +99,5 @@ export const AdvancedMarker = forwardRef<google.maps.marker.AdvancedMarkerElemen
     onGmpClick,
   });
 
-  return <AdvancedMarkerContentProvider value={value}>{createPortal(children, fragment.current)}</AdvancedMarkerContentProvider>;
+  return <AdvancedMarkerContentProvider value={value}>{createPortal(<>{children}</>, fragment.current)}</AdvancedMarkerContentProvider>;
 });

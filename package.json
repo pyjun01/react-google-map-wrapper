@@ -1,6 +1,6 @@
 {
   "name": "react-google-map-wrapper",
-  "version": "0.0.1-beta-1",
+  "version": "1.0.0",
   "description": "Component library for rendering Google Maps in React",
   "keywords": [
     "react",
@@ -23,6 +23,7 @@
   "funding": "https://github.com/sponsors/pyjun01",
   "license": "MIT",
   "author": "Yongjun Park",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@mvlchain/eslint-config": "^1.0.3",
     "@mvlchain/prettier-config": "^1.0.1",
+    "@types/google.maps": "^3.54.10",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "bumpp": "^9.2.0",

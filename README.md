@@ -1,5 +1,3 @@
-# 🛠🛠🛠 in development 🛠🛠🛠
-
 # [React Google Map Wrapper](https://pyjun01.github.io/react-google-map-wrapper/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pyjun01/react-google-map-wrapper/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react-google-map-wrapper.svg?style=flat)](https://www.npmjs.com/package/react-google-map-wrapper)
 
 `react-google-map-wrapper` is a React component library for rendering Google Maps.

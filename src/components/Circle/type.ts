@@ -1,7 +1,6 @@
 export interface CircleEvent {
   onCenterChanged?: (circle: google.maps.Circle) => void;
   onClick?: (circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void;
-  onContextmenu?: (circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void;
   onDblClick?: (circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void;
   onDrag?: (circle: google.maps.Circle, event: google.maps.MapMouseEvent) => void;
   onDragEnd?: (circle: google.maps.Circle, event: google.maps.MapMouseEvent) => void;

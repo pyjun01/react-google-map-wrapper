@@ -3,4 +3,47 @@ title: Control
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { ControlEx } from '../../../../components/api/Control';
+
+`<Control />` component is used for display custom controls that can be interacting with the user. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/controls#CustomControls' target='_blank' rel='noreferrer'>official google map documentation</a>.
+
+### Basic Example
+
+```tsx
+const center = { lat: 37.5111158, lng: 127.098167 };
+
+function MapContent() {
+  const map = useMapContext();
+
+  const handleButtonClick = () => {
+    map.setCenter(center);
+  }
+
+  return (
+    <Control position={google.maps.ControlPosition.TOP_CENTER}>
+      <button onClick={handleButtonClick}>Center Map</button>
+    </Control>
+  );
+}
+
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      center={center}
+      ...
+    >
+      <MapContent />
+    </GoogleMap>
+  )
+}
+```
+
+<ControlEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| poistion | `google.maps.ControlPosition` | position of control element |
+| ... | `HTMLAttributes<HTMLDivElement>` | props except `position` are passed to the `<div>` container. |

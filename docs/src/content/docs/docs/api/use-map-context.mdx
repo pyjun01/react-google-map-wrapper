@@ -3,4 +3,48 @@ title: useMapContext
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { UseMapContextEx } from '../../../../components/api/useMapContext';
+
+`useMapContext` hooks read <a href='https://developers.google.com/maps/documentation/javascript/reference/map#Map' target='_blank' rel='noreferrer'>Map</a> instance of the <a href='./google-map'>GoogleMap</a> component.
+
+### Basic Example
+
+```tsx
+function MapContent() {
+  const map = useMapContext();
+
+  console.log(map);
+
+  useEffect(() => {
+    setTimeout(() => { // refresh and watch the example below!
+      map.fitBounds({
+        south: 37.5211158,
+        north: 37.5011158,
+        west: 127.098167,
+        east: 127.098167,
+      })
+    }, 3000);
+  }, []);
+
+  return (
+    <Marker lat={37.5111158} lng={127.098167} title='Lotte World' />
+  );
+}
+
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      center={{ lat: 37.5111158, lng: 127.098167 }}
+    >
+      <MapContent />
+    </GoogleMap>
+  );
+}
+```
+
+<UseMapContextEx client:only='react' />
+
+### Alternative
+
+You can use <a href='./google-map'>GoogleMap</a> event callbacks(`onLoad`, etc.) or `ref` props to get a <a href='https://developers.google.com/maps/documentation/javascript/reference/map#Map' target='_blank' rel='noreferrer'>Map</a> instance.

@@ -3,4 +3,68 @@ title: Rectangle
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { RectangleEx } from '../../../../components/api/Rectangle';
+
+`<Rectangle />` component is a simplified [Polygon](/react-google-map-wrapper/docs/api/polygon) for rectangles. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/shapes#rectangles' target='_blank' rel='noreferrer'>official documentation</a>.
+
+### Basic Example
+
+```tsx
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      initialZoom={11}
+      initialCenter={{ lat: 33.678, lng: -116.243 }}
+      mapOptions={{
+        mapTypeId: "terrain",
+      }}
+    >
+      <Rectangle
+        strokeColor="#FF0000"
+        strokeOpacity={0.8}
+        strokeWeight={2}
+        fillColor="#FF0000"
+        fillOpacity={0.35}
+        bounds={{
+          north: 33.685,
+          south: 33.671,
+          east: -116.234,
+          west: -116.251,
+        }}
+      />
+    </GoogleMap>
+  );
+}
+```
+
+<RectangleEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| paths | `google.maps.MVCArray<google.maps.MVCArray<LatLng>> \| google.maps.MVCArray<LatLng> \| Array<Array<LatLng \| LatLngLiteral>> \| Array<LatLng \| LatLngLiteral>` | The ordered sequence of coordinates for drawing Rectangle. Paths are closed automatically; do not repeat the first vertex of the path as the last vertex. |
+| clickable | `boolean` | Indicates whether this `Rectangle` handles mouse events. |
+| draggable | `boolean` | if flag is set to `true`, the user can drag Rectangle over the map. |
+| editable | `boolean` | if flag is set to `true`, the user can edit Rectangle by dragging the control points shown at the vertices and on each segment. |
+| fillColor | `string` | The fill color. All CSS3 colors are supported except for extended named colors. |
+| fillOpacity | `number` | The fill opacity between 0.0 and 1.0 |
+| geodesic | `boolean` | if flag is set to `true`, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth. |
+| strokeColor | `string` | The stroke color. All CSS3 colors are supported except for extended named colors. |
+| strokeOpacity | `number` | The stroke opacity between 0.0 and 1.0. |
+| strokePosition | `google.maps.StrokePosition` | The stroke position. |
+| strokeWeight | `number` | The stroke width in pixels. |
+| visible | `boolean` | Whether this polygon is visible on the map. |
+| zIndex | `number` | zIndex for Rectangle |
+| onClick | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onContextmenu | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `contextmenu` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDblClick | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `dblclick` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDrag | `(polygon: google.maps.Rectangle, event: google.maps.MapMouseEvent) => void;` | callback for `drag` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragEnd | `(polygon: google.maps.Rectangle, event: google.maps.MapMouseEvent) => void;` | callback for `dragend` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragStart | `(polygon: google.maps.Rectangle, event: google.maps.MapMouseEvent) => void;` | callback for `dragstart` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseDown | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `mousedown` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseMove | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `mousemove` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOut | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `mouseout` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOver | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `mouseover` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseUp | `(polygon: google.maps.Rectangle, event: google.maps.PolyMouseEvent) => void;` | callback for `mouseup` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Rectangle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |

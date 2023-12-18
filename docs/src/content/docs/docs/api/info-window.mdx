@@ -3,4 +3,72 @@ title: InfoWindow
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { InfoWindowEx } from '../../../../components/api/InfoWindow';
+
+`<InfoWindow />` component is used for display content (usually text or images) in a popup window above the map, at a given location. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/controls#CustomInfoWindows' target='_blank' rel='noreferrer'>official google map documentation</a>.
+
+### Basic Example
+
+```tsx
+const uluru = { lat: -25.363, lng: 131.044 };
+
+function Content() {
+  return (
+    <div id='content'>
+      <div id='siteNotice'></div>
+      <h1 id='firstHeading' className='firstHeading'>Uluru</h1>
+      <div id='bodyContent'>
+        <p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large sandstone rock formation in the southern part of the Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) south west of the nearest large town, Alice Springs; 450&#160;km (280&#160;mi) by road. Kata Tjuta and Uluru are the two major features of the Uluru - Kata Tjuta National Park. Uluru is sacred to the Pitjantjatjara and Yankunytjatjara, the Aboriginal people of the area. It has many springs, waterholes, rock caves and ancient paintings. Uluru is listed as a World Heritage Site.</p>
+        <p>Attribution: Uluru, <a href='https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194'>https://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>
+      </div>
+    </div>
+  );
+}
+
+function MyMap() {
+  const [isOpen, setOpen] = useState(false);
+
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      zoom={4}
+      center={uluru}
+    >
+      <InfoWindow ariaLabel='Uluru' content={<Content />} onCloseClick={() => setOpen(false)} open={isOpen}>
+        <Marker {...uluru} title='Uluru (Ayers Rock)' onClick={() => setOpen(true)} />
+      </InfoWindow>
+    </GoogleMap>
+  );
+}
+```
+
+<InfoWindowEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| open | `boolean` | InfoWindow open flag. if flag is set to `true`, InfoWindow will be displayed on the map. |
+| shouldFocus | `boolean` | Whether or not focus should be moved inside the InfoWindow when it is opened. |
+| ariaLabel | `string` | AriaLabel to assign to the InfoWindow. |
+| content | `ReactElement<unknown> \| string \| Element \| Text` | Content to display in the InfoWindow. |
+| disableAutoPan | `boolean` | Disable panning the map to make the InfoWindow fully visible when it opens. |
+| maxWidth | `number` | Maximum width of the InfoWindow |
+| minWidth | `number` | Minimum width of the InfoWindow |
+| pixelOffset | `google.maps.Size` | The offset, in pixels, of the tip of the info window from the point on the map at whose geographical coordinates the info window is anchored. |
+| position | `google.maps.LatLng \| google.maps.LatLngLiteral` | The LatLng at which to display this InfoWindow. If the InfoWindow is opened with Marker children(anchor), the anchor's position will be used instead. |
+| zIndex | `number` | zIndex for InfoWindow. |
+| onCloseClick | `(infoWindow: google.maps.InfoWindow) => void` | callback for `closeclick` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onContentChanged | `(infoWindow: google.maps.InfoWindow) => void` | callback for `content_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDomReady | `(infoWindow: google.maps.InfoWindow) => void` | callback for `domready` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onPositionChanged | `(infoWindow: google.maps.InfoWindow) => void` | callback for `position_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onVisible | `(infoWindow: google.maps.InfoWindow) => void` | callback for `visible` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onZIndexChanged | `(infoWindow: google.maps.InfoWindow) => void` | callback for `zindex_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/info-window#InfoWindow-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+
+### Anchor
+
+If you pass [Marker](/react-google-map-wrapper/docs/api/marker) or [AdvancedMarker](/react-google-map-wrapper/docs/api/advanced-marker) to children, it will be used as an anchor.
+
+> The anchor to which this InfoWindow will be positioned. If the anchor is non-null, the InfoWindow will be positioned at the top-center of the anchor. The InfoWindow will be rendered on the same map or panorama as the anchor (when available).
+
+otherwise you can 

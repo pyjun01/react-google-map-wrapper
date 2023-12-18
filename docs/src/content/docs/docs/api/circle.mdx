@@ -3,4 +3,91 @@ title: Circle
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { CircleEx } from '../../../../components/api/Circle';
+
+`<Circle />` component is a simplified [Polygon](/react-google-map-wrapper/docs/api/polygon) for circles. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/shapes#circles' target='_blank' rel='noreferrer'>official documentation</a>.
+
+### Basic Example
+
+```tsx
+const cityList = [
+  {
+    name: 'chicago',
+    center: { lat: 41.878, lng: -87.629 },
+    population: 2714856,
+  },
+  {
+    name: 'newyork',
+    center: { lat: 40.714, lng: -74.005 },
+    population: 8405837,
+  },
+  {
+    name: 'losangeles',
+    center: { lat: 34.052, lng: -118.243 },
+    population: 3857799,
+  },
+   {
+    name: 'vancouver',
+    center: { lat: 49.25, lng: -123.1 },
+    population: 603502,
+  },
+];
+
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      initialZoom={4}
+      initialCenter={{ lat: 37.09, lng: -95.712 }}
+      mapOptions={{
+        mapTypeId: "terrain",
+      }}
+    >
+      {cityList.map(({ name, center, population }) => (
+        <Circle
+          key={name}
+          strokeColor="#FF0000"
+          strokeOpacity={0.8}
+          strokeWeight={2}
+          fillColor="#FF0000"
+          fillOpacity={0.35}
+          center={center}
+          radius={Math.sqrt(population) * 100}
+        />
+      ))}
+    </GoogleMap>
+  );
+}
+```
+
+<CircleEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| center | `google.maps.LatLng \| google.maps.LatLngLiteral` | The center of the Circle. |
+| radius | `number` | The radius in meters on the Earth's surface. |
+| clickable | `boolean` | Indicates whether this `Circle` handles mouse events. |
+| draggable | `boolean` | if flag is set to `true`, the user can drag Circle over the map. |
+| editable | `boolean` | if flag is set to `true`, the user can edit this circle by dragging the control points shown at the center and around the circumference of the circle. |
+| fillColor | `string` | The fill color. All CSS3 colors are supported except for extended named colors. |
+| fillOpacity | `number` | The fill opacity between 0.0 and 1.0 |
+| strokeColor | `string` | The stroke color. All CSS3 colors are supported except for extended named colors. |
+| strokeOpacity | `number` | The stroke opacity between 0.0 and 1.0. |
+| strokePosition | `google.maps.StrokePosition` | The stroke position. |
+| strokeWeight | `number` | The stroke width in pixels. |
+| visible | `boolean` | Whether this polygon is visible on the map. |
+| zIndex | `number` | zIndex for Circle |
+| onCenterChanged | `(circle: google.maps.Circle) => void` | callback for `center_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onClick | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDblClick | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `dblclick` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDrag | `(circle: google.maps.Circle, event: google.maps.MapMouseEvent) => void` | callback for `drag` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragEnd | `(circle: google.maps.Circle, event: google.maps.MapMouseEvent) => void` | callback for `dragend` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragStart | `(circle: google.maps.Circle, event: google.maps.MapMouseEvent) => void` | callback for `dragstart` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseDown | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `mousedown` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseMove | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `mousemove` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOut | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `mouseout` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseOver | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `mouseover` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onMouseUp | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `mouseup` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onRadiusChanged | `(circle: google.maps.Circle, event: google.maps.PolyMouseEvent) => void` | callback for `radius_changed` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/polygon#Circle-Events' target='_blank' rel='noreferrer'>official documentation</a>. |

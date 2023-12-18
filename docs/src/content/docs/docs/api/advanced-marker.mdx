@@ -1,6 +1,86 @@
 ---
-title: AdvancedMarker
+title: AdvancedMarker (w/ PinElement)
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { AdvancedMarkerEx } from '../../../../components/api/AdvancedMarker';
+
+> Before using advanced markers, you need a Cloud project with a billing account, and the Maps JavaScript API enabled. To learn more, see <a href='https://developers.google.com/maps/documentation/javascript/advanced-markers/start#get_an_api_key_and_enable_the' target='_blank' rel='noreferrer'>official document</a>.
+
+`<AdvancedMarker />` component is used for display customize highly performant markers. You can customize default marker's background, border, etc... or replace marker icon with custom react element.
+
+### Basic Example
+
+```tsx
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      mapOptions={{
+        mapId: 'YOUR_MAP_ID',
+      }}
+      ...
+    >
+      <AdvancedMarker lat={37.4} lng={-122.07}>
+        <PinElement scale={1.5} />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.38} lng={-122.07}>
+        <PinElement background='#FBBC04' />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.4} lng={-122.05}>
+        <PinElement borderColor={'#137333'} />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.38} lng={-122.05}>
+        <PinElement glyphColor={'white'} />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.4} lng={-122.03}>
+        <PinElement glyph='' />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.38} lng={-122.03}>
+        <img src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' />
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.39} lng={-122.05}>
+        <div className='px-5 py-3 rounded bg-[#0af] text-lg text-white'>
+          whole new marker content.
+        </div>
+      </AdvancedMarker>
+    </GoogleMap>
+  );
+}
+```
+
+<AdvancedMarkerEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| lat | `number` | latitude |
+| lng | `number` | longitude |
+| content | `Node` | we recommend passing marker content to `children`, but you can also pass marker content manually using `content` props. |
+| hidden | `boolean` | if flag is set to `true`, marker will not be displayed on the map. |
+| collisionBehavior | `google.maps.CollisionBehavior` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/advanced-markers/collision-behavior' target='_blank' rel='noreferrer'>official documentation</a>. |
+| gmpDraggable | `boolean` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/advanced-markers/accessible-markers' target='_blank' rel='noreferrer'>official documentation</a>. |
+| title | `string` | ... |
+| zIndex | `number` | ... |
+| onClick | `(marker: google.maps.marker.AdvancedMarkerElement, event: google.maps.MapMouseEvent) => void` | callback for `click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDrag | `(marker: google.maps.marker.AdvancedMarkerElement, event: google.maps.MapMouseEvent) => void` | callback for `drag` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragEnd | `(marker: google.maps.marker.AdvancedMarkerElement, event: google.maps.MapMouseEvent) => void` | callback for `dragend` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onDragStart | `(marker: google.maps.marker.AdvancedMarkerElement, event: google.maps.MapMouseEvent) => void` | callback for `drag_start` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+| onGmpClick | `(marker: google.maps.marker.AdvancedMarkerElement, evnet: google.maps.marker.AdvancedMarkerClickEvent) => void` | callback for `gmp_click` event. Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement-Events' target='_blank' rel='noreferrer'>official documentation</a>. |
+
+### PinElement
+
+`<PinElement />` component is used for customize default marker's background, borderColor, glyph, glyphColor, scale.
+
+https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#PinElement
+
+#### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| background | `string` | Please refer to the <a href='https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#PinElement-Properties' target='_blank' rel='noreferrer'>official documentation</a>. |
+| borderColor | `string` | ... |
+| glyph | `string \| Element \| URL` | ... |
+| glyphColor | `string` | ... |
+| scale | `number` | ... |

@@ -36,76 +36,68 @@ export default defineConfig({
                   link: '/docs/api/google-map-api-loader',
                 },
                 {
-                  label: 'GoogleMap 🛠',
+                  label: 'GoogleMap',
                   link: '/docs/api/google-map',
                 },
                 {
-                  label: 'Marker 🛠',
+                  label: 'Marker',
                   link: '/docs/api/marker',
                 },
                 {
-                  label: 'CustomMarker 🛠',
+                  label: 'CustomMarker',
                   link: '/docs/api/custom-marker',
                 },
                 {
-                  label: 'AdvancedMarker 🛠',
+                  label: 'AdvancedMarker (w/ PinElement)',
                   link: '/docs/api/advanced-marker',
                 },
                 {
-                  label: 'PinElement 🛠',
-                  link: '/docs/api/pin-element',
+                  label: 'MarkerClusterer',
+                  link: '/docs/api/marker-clusterer',
                 },
                 {
-                  label: 'Control 🛠',
+                  label: 'Control',
                   link: '/docs/api/control',
                 },
                 {
-                  label: 'InfoWindow 🛠',
+                  label: 'InfoWindow',
                   link: '/docs/api/info-window',
                 },
                 {
-                  label: 'Polyline 🛠',
+                  label: 'Polyline',
                   link: '/docs/api/polyline',
                 },
                 {
-                  label: 'Polygon 🛠',
+                  label: 'Polygon',
                   link: '/docs/api/polygon',
                 },
                 {
-                  label: 'Rectangle 🛠',
+                  label: 'Rectangle',
                   link: '/docs/api/rectangle',
                 },
                 {
-                  label: 'Circle 🛠',
+                  label: 'Circle',
                   link: '/docs/api/circle',
                 },
                 {
-                  label: 'HeatmapLayer 🛠',
+                  label: 'HeatmapLayer',
                   link: '/docs/api/heatmap-layer',
-                }
+                },
               ],
             },
             {
               label: 'Hooks',
               items: [
                 {
-                  label: 'useMapContext 🛠',
+                  label: 'useMapContext',
                   link: '/docs/api/use-map-context',
                 },
                 {
-                  label: 'useMarkerContext 🛠',
-                  link: '/docs/api/use-marker-context',
-                },
-                {
-                  label: 'useCustomMarkerContext 🛠',
-                  link: '/docs/api/use-custom-marker-context',
-                },
-                {
-                  label: 'useImportLibrary 🛠',
+                  label: 'useImportLibrary',
                   link: '/docs/api/use-import-library',
                 },
                 {
-                  label: 'useApiLoadingStatus 🛠',
+                  label: 'useApiLoadingStatus',
                   link: '/docs/api/use-api-loading-status',
                 },
               ],
@@ -114,11 +106,11 @@ export default defineConfig({
               label: 'etc',
               items: [
                 {
-                  label: 'LoadingStatus 🛠',
+                  label: 'LoadingStatus',
                   link: '/docs/api/loading-status',
                 },
                 {
-                  label: 'appendLibImportScript 🛠',
+                  label: 'appendLibImportScript',
                   link: '/docs/api/append-lib-import-script',
                 },
               ],
