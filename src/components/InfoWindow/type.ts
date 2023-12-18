@@ -9,8 +9,9 @@ export interface InfoWindowEvent {
   onZIndexChanged?: (infoWindow: google.maps.InfoWindow) => void;
 }
 
-export interface InfoWindowProps extends google.maps.InfoWindowOptions, InfoWindowEvent {
+export interface InfoWindowProps extends Omit<google.maps.InfoWindowOptions, 'content'>, InfoWindowEvent {
   children?: ReactElement;
   open?: boolean;
   shouldFocus?: boolean;
+  content?: ReactElement<unknown> | string | Element | Text | null;
 }

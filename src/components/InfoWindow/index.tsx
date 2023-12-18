@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useMemo, useState } from 'react';
+import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AnchorContextData, AnchorProvider } from './Context';
 import { InfoWindowProps } from './type';
@@ -6,6 +6,7 @@ import { useMapContext } from '../../components/Provider/MapProvider';
 import { useApplyInfoWindowEvent } from '../../hooks/useApplyInfoWindowEvent';
 import { useImportLibrary } from '../../hooks/useImportLibrary';
 import { passRef } from '../../utils/passRef';
+import { createPortal } from 'react-dom';
 
 export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(function InfoWindow(
   {
@@ -33,7 +34,7 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(fu
   const mapsLib = useImportLibrary('maps');
 
   const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(null);
-
+  const fragment = useRef<HTMLDivElement>(document.createElement('div'));
   const [anchor, setAnchor] = useState<Parameters<AnchorContextData['setAnchor']>[0]>();
 
   const value = useMemo<AnchorContextData>(
@@ -50,7 +51,7 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(fu
 
     const infoWindow = new mapsLib.InfoWindow({
       ariaLabel,
-      content,
+      content: fragment.current,
       disableAutoPan,
       maxWidth,
       minWidth,
@@ -80,10 +81,6 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(fu
   }, [infoWindow, anchor, open]);
 
   useEffect(() => {
-    infoWindow?.setContent(content);
-  }, [infoWindow, content]);
-
-  useEffect(() => {
     infoWindow?.setPosition(position);
   }, [infoWindow, position?.lat, position?.lng]);
 
@@ -107,5 +104,8 @@ export const InfoWindow = forwardRef<google.maps.InfoWindow, InfoWindowProps>(fu
     onZIndexChanged,
   });
 
-  return <AnchorProvider value={value}>{children}</AnchorProvider>;
+  return <AnchorProvider value={value}>
+    {createPortal(<>{content}</>, fragment.current)}
+    {children}
+  </AnchorProvider>;
 });

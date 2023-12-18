@@ -6,7 +6,7 @@ import { CustomMarkerProps, OverlayMarker } from './type';
 import { passRef } from '../../utils/passRef';
 import { useMapContext } from '../Provider/MapProvider';
 import { useOverlayMarker } from './hooks';
-import { useEvent } from '@@hooks/useEvent';
+import { useEvent } from '../../hooks/useEvent';
 
 export const CustomMarker = forwardRef<OverlayMarker, CustomMarkerProps>(function CustomMarker(
   { children, lat, lng, draggable, preventDragOnClickable = true, onDragStart = null, onDrag = null, onDragEnd = null },
