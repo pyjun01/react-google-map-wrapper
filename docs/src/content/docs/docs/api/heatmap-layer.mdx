@@ -3,4 +3,102 @@ title: HeatmapLayer
 description: description
 ---
 
-🛠🛠🛠 This documentation is currently in progress.  🛠🛠🛠
+import { HeatmapLayerEx } from '../../../../components/api/HeatmapLayer';
+
+`<HeatmapLayer />` component is a visualization used to depict the intensity of data at geographical points. for more detail, see <a href='https://developers.google.com/maps/documentation/javascript/heatmaplayer' target='_blank' rel='noreferrer'>official documentation</a>.
+
+### Basic Example
+
+```tsx
+const center = { lat: 37.774546, lng: -122.433523 };
+const getData = () => [
+  new google.maps.LatLng(37.782551, -122.445368),
+  new google.maps.LatLng(37.782745, -122.444586),
+  ...
+  new google.maps.LatLng(37.752986, -122.403112),
+  new google.maps.LatLng(37.751266, -122.403355),
+];
+const customGradient = [
+  'rgba(0, 255, 255, 0)',
+  'rgba(0, 255, 255, 1)',
+  ...
+  'rgba(191, 0, 31, 1)',
+  'rgba(255, 0, 0, 1)',
+];
+
+function MapContent() {
+  const [show, setShow] = useState(true);
+  const [gradient, setGradient] = useState<string[] | null>(null);
+  const [radius, setRadius] = useState<number | null>(null);
+  const [opacity, setOpacity] = useState<number | null>(null);
+
+  const data = useMemo(getData, []);
+
+  const toggleHeatmap = () => {
+    setShow(!show);
+  };
+
+  const changeGradient = () => {
+    setGradient((prev) => (prev ? null : customGradient));
+  };
+
+  const changeRadius = () => {
+    setRadius(radius ? null : 20);
+  };
+
+  const changeOpacity = () => {
+    setOpacity(opacity ? null : 0.2);
+  };
+
+  return (
+    <>
+      <HeatmapLayer data={data} gradient={gradient} radius={radius} opacity={opacity} hidden={!show} />
+      <Control position={google.maps.ControlPosition.TOP_CENTER}>
+        <div id='floating-panel'>
+          <button id='toggle-heatmap' onClick={toggleHeatmap}>
+            Toggle Heatmap
+          </button>
+          <button id='change-gradient' onClick={changeGradient}>
+            Change gradient
+          </button>
+          <button id='change-radius' onClick={changeRadius}>
+            Change radius
+          </button>
+          <button id='change-opacity' onClick={changeOpacity}>
+            Change opacity
+          </button>
+        </div>
+      </Control>
+    </>
+  );
+}
+
+function MyMap() {
+  return (
+    <GoogleMap
+      className='h-[400px]'
+      initialZoom={13}
+      initialCenter={center}
+      mapOptions={{
+        mapTypeId: 'satellite',
+        disableDefaultUI: true,
+      }}
+    >
+      <MapContent />
+    </GoogleMap>
+  );
+}
+```
+
+<HeatmapLayerEx client:only='react' />
+
+### Props
+
+| Props | Type | Description |
+| ----------- | ----------- | ----------- |
+| data | `google.maps.MVCArray<google.maps.LatLng \| google.maps.visualization.WeightedLocation> \| Array<google.maps.LatLng \| google.maps.visualization.WeightedLocation>` | The data points to display. |
+| dissipating | `boolean` | Specifies whether heatmaps dissipate on zoom. When dissipating is `false` the radius of influence increases with zoom level to ensure that the color intensity is preserved at any given geographic location. Defaults to `true`. |
+| gradient | `string[]` | The color gradient of the heatmap, specified as an array of CSS color strings. All CSS3 colors are supported except for extended named colors. |
+| maxIntensity | `number` | The maximum intensity of the heatmap. |
+| opacity | `number` | The opacity of the heatmap, expressed as a number between 0 and 1. (default = `0.6`) |
+| radius | `number` | The radius of influence for each data point, in pixels. |

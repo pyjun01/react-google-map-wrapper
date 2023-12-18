@@ -60,29 +60,29 @@ export default defineConfig({
                   link: '/docs/api/control',
                 },
                 {
-                  label: 'InfoWindow 🛠',
+                  label: 'InfoWindow',
                   link: '/docs/api/info-window',
                 },
                 {
-                  label: 'Polyline 🛠',
+                  label: 'Polyline',
                   link: '/docs/api/polyline',
                 },
                 {
-                  label: 'Polygon 🛠',
+                  label: 'Polygon',
                   link: '/docs/api/polygon',
                 },
                 {
-                  label: 'Rectangle 🛠',
+                  label: 'Rectangle',
                   link: '/docs/api/rectangle',
                 },
                 {
-                  label: 'Circle 🛠',
+                  label: 'Circle',
                   link: '/docs/api/circle',
                 },
                 {
-                  label: 'HeatmapLayer 🛠',
+                  label: 'HeatmapLayer',
                   link: '/docs/api/heatmap-layer',
-                }
+                },
               ],
             },
             {
