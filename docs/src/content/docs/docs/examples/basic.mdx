@@ -15,10 +15,10 @@ function Map() {
     <GoogleMap className='h-[400px]' zoom={17} center={{ lat: 37.5709413, lng: 126.977787 }}>
       <Marker lat={37.5709413} lng={126.977787} />
     </GoogleMap>
-  )
+  );
 }
 
-export function App() {
+function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <GoogleMapApiLoader apiKey='YOUR_API_KEY' suspense>

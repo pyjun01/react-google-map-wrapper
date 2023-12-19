@@ -131,6 +131,30 @@ export default defineConfig({
                   label: 'Load the Maps JavaScript API',
                   link: '/docs/examples/basic',
                 },
+                {
+                  label: 'Dark mode',
+                  link: '/docs/examples/dark-mode',
+                },
+                {
+                  label: 'Toggle Marker',
+                  link: '/docs/examples/toggle-marker',
+                },
+                {
+                  label: 'Rectangle editable',
+                  link: '/docs/examples/rectangle-editable',
+                },
+                {
+                  label: 'Put a hole in Polygon',
+                  link: '/docs/examples/put-a-hole-in-polygon',
+                },
+                {
+                  label: 'Inspect a Polyline',
+                  link: '/docs/examples/inspect-a-polyline',
+                },
+                {
+                  label: 'Interactive Advanced Marker',
+                  link: '/docs/examples/interactive-advanced-marker',
+                },
                 // {
                 //   label: 'Showing Pixel and Tile Coordinates',
                 //   link: '/docs/introdution',
