@@ -2,6 +2,7 @@ import react from '@astrojs/react';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
@@ -332,6 +333,7 @@ export default defineConfig({
     }),
     react(),
     tailwind(),
+    robotsTxt(),
   ],
   site: 'https://pyjun01.github.io',
   base: '/react-google-map-wrapper',

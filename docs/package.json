@@ -17,6 +17,7 @@
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "astro": "^4.0.1",
+    "astro-robots-txt": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-map-wrapper": "^1.0.0",
