@@ -5,8 +5,10 @@ title: Quick Start
 import { QuickStart } from '../../../components/QuickStart';
 
 - **You need to set `height` of map**, or else it won't show up. (see the example below)
-- If you want to access to the <a href='https://developers.google.com/maps/documentation/javascript/reference/map#Map' target='_blank' rel='noreferrer'>map</a> instance, we recommend using `useMapContext` inside of `GoogleMap` component. (or you can using `ref`)
-- **Currently we don't support SSR. Please use it with CSR only.**
+- If you want to access to the <a href='https://developers.google.com/maps/documentation/javascript/reference/map#Map' target='_blank' rel='noreferrer'>map</a> instance, we recommend using `useMapContext` inside of `GoogleMap` component. (or you can just using `ref`)
+- All components are _uncontrolled_. To render a controlled component, pass the props it needs to render and related event callback.
+- `react-google-map-wrapper` doesn't force components to always display by the data you pass. For example, if you drag a marker without passing a drag-related event callback to it, the actual position of the marker will be different from the position you passed(lat, lng). because you didn't get the changed position in the event callback.
+- **Google Maps API doesn't support SSR. Please use it only in client component.**
 
 <br />
 <hr />

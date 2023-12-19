@@ -23,6 +23,10 @@ export default defineConfig({
               label: 'Quick Start',
               link: '/docs/quick-start',
             },
+            {
+              label: 'Important Rule',
+              link: '/docs/important-rule',
+            },
           ],
         },
         {
