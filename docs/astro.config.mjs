@@ -137,6 +137,10 @@ export default defineConfig({
                   link: '/docs/examples/dark-mode',
                 },
                 {
+                  label: 'H3 Map',
+                  link: '/docs/examples/h3-map',
+                },
+                {
                   label: 'Toggle Marker',
                   link: '/docs/examples/toggle-marker',
                 },
