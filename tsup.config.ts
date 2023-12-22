@@ -1,12 +1,27 @@
-import { defineConfig } from 'tsup';
+import { Options, defineConfig } from 'tsup';
 
-export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['esm', 'cjs'],
-  splitting: false,
-  sourcemap: false,
-  clean: true,
-  minify: true,
-  dts: true,
-  legacyOutput: true,
+export default defineConfig((options) => {
+  const commonOptions: Partial<Options> = {
+    ...options,
+    entry: ['src/index.ts'],
+    splitting: false,
+    sourcemap: false,
+    clean: true,
+    minify: true,
+    dts: true,
+    legacyOutput: true,
+  };
+
+  return [
+    {
+      ...commonOptions,
+      format: ['cjs'],
+      target: 'es5',
+    },
+    {
+      ...commonOptions,
+      format: ['esm'],
+      target: 'es6',
+    },
+  ];
 });
