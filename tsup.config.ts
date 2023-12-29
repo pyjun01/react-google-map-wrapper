@@ -17,6 +17,7 @@ export default defineConfig((options) => {
       ...commonOptions,
       format: ['cjs'],
       target: 'es5',
+      dts: false,
     },
     {
       ...commonOptions,
