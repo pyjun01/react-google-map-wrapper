@@ -1,10 +1,13 @@
 .github
 .vscode
 docs
-node_modules/
+node_modules
 .eslintignore
 .eslintrc.js
+.gitignore
+.npmignore
 .prettierignore
 .prettierrc.js
-*.d.mts
-ex
+tsconfig.json
+tsup.config.ts
+pnpm-lock.yaml
