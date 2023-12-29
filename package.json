@@ -43,7 +43,7 @@
   "scripts": {
     "build": "tsup",
     "bump": "pnpm run build && pnpx bumpp && npm publish",
-    "example": "cd example && pnpm i && pnpm dev",
+    "docs": "cd docs && npm i && npm run dev",
     "lint:fix": "eslint --fix",
     "test": "vitest --globals"
   },
