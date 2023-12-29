@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react';
 
-import { LoadingStatus, coreStore, useApiLoadingStatus } from '../../store/core';
+import { LoadingStatus, setLoadingStatus, useApiLoadingStatus } from '../../store/core';
 import { ApiLoadConfig } from '../../types';
 import { appendLibImportScript } from '../../utils/appendScript';
 
@@ -22,16 +22,13 @@ export function GoogleMapApiLoader({ children, suspense, onSuccess, onFailure, .
     (promise = google.maps
       .importLibrary('core')
       .then((core) => {
-        coreStore.setState({
-          status: LoadingStatus.SUCCESS,
-          core: core as google.maps.CoreLibrary,
-        });
+        setLoadingStatus(LoadingStatus.SUCCESS);
 
         onSuccess?.(core as google.maps.CoreLibrary);
       })
       .catch((reason) => {
         console.error(reason);
-        coreStore.setState({ status: LoadingStatus.FAILURE });
+        setLoadingStatus(LoadingStatus.FAILURE);
 
         onFailure?.(reason);
       }));

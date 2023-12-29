@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { useEffect, useReducer } from 'react';
 
 export enum LoadingStatus {
   LOADING = 'LOADING',
@@ -6,19 +6,46 @@ export enum LoadingStatus {
   SUCCESS = 'SUCCESS',
 }
 
-export interface CoreStore {
+type Store = {
   status: LoadingStatus;
-  core: google.maps.CoreLibrary | null;
   setStatus: (status: LoadingStatus) => void;
-  setCore: (status: google.maps.CoreLibrary) => void;
-}
+};
 
-export const coreStore = create<CoreStore>((set, get) => ({
+const store: Store = {
   status: LoadingStatus.LOADING,
-  core: null,
-  setStatus: (status) => set({ status }),
-  setCore: (core) => set({ core }),
-}));
+  setStatus(status) {
+    this.status = status;
+    storeSub.notify();
+  },
+};
 
-export const useCoreStore = coreStore;
-export const useApiLoadingStatus = () => useCoreStore((state) => state.status);
+const storeSub = {
+  listeners: new Set<(v: Store) => void>(),
+  sub(listener: (v: Store) => void) {
+    this.listeners.add(listener);
+
+    return () => {
+      this.listeners.delete(listener);
+    };
+  },
+  notify() {
+    this.listeners.forEach((fn) => fn(store));
+  },
+};
+
+export const setLoadingStatus = store.setStatus.bind(store);
+
+export const useApiLoadingStatus = () => {
+  const loadingStatus = store.status;
+
+  const [_, rerender] = useReducer((_) => _ + 1, 0);
+  useEffect(
+    () =>
+      storeSub.sub(() => {
+        rerender();
+      }),
+    []
+  );
+
+  return loadingStatus;
+};
