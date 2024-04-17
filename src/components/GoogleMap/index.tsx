@@ -67,9 +67,9 @@ export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(function Go
     }
 
     const map = new mapsLib.Map(containerRef.current!, {
+      ...mapOptions,
       center: initialCenter || center || mapOptions.center,
       zoom: initialZoom || zoom || mapOptions.zoom,
-      ...mapOptions,
     });
 
     setMap(map);
@@ -80,6 +80,8 @@ export const GoogleMap = forwardRef<google.maps.Map, GoogleMapProps>(function Go
 
   useApplyMapOptions(map, {
     ...mapOptions,
+    center: center || mapOptions.center,
+    zoom: zoom || mapOptions.zoom,
   });
 
   useApplyMapEvent(map, {
