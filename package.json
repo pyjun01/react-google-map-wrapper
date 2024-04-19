@@ -1,6 +1,6 @@
 {
   "name": "react-google-map-wrapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Component library for rendering Google Maps in React",
   "keywords": [
     "react",
