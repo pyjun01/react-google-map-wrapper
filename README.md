@@ -4,6 +4,30 @@
 
 You can see an example [here](https://pyjun01.github.io/react-google-map-wrapper/docs/examples/basic/).
 
+```tsx
+import { Suspense } from 'react';
+import { GoogleMap, GoogleMapApiLoader, Marker } from 'react-google-map-wrapper';
+
+function Map() {
+  return (
+    <GoogleMap className='h-[400px]' zoom={17} center={{ lat: 37.5709413, lng: 126.977787 }}>
+      <Marker lat={37.5709413} lng={126.977787} />
+    </GoogleMap>
+  );
+}
+
+function App() {
+  return (
+    <Suspense fallback={<Fallback />}>
+      {/* Load the google map api */}
+      <GoogleMapApiLoader apiKey='YOUR_API_KEY' suspense>
+        <Map />
+      </GoogleMapApiLoader>
+    </Suspense>
+  );
+}
+```
+
 ## Installation
 
 ```bash
