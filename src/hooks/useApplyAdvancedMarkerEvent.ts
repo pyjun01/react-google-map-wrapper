@@ -9,6 +9,6 @@ export const useApplyAdvancedMarkerEvent = (
   useMvcObjectEventEffect(advancedMarker, 'click', onClick);
   useMvcObjectEventEffect(advancedMarker, 'drag', onDrag);
   useMvcObjectEventEffect(advancedMarker, 'dragend', onDragEnd);
-  useMvcObjectEventEffect(advancedMarker, 'drag_start', onDragStart);
+  useMvcObjectEventEffect(advancedMarker, 'dragstart', onDragStart);
   useMvcObjectEventEffect(advancedMarker, 'gmp_click', onGmpClick);
 };
