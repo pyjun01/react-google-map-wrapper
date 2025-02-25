@@ -53,6 +53,7 @@ export const PinElement = forwardRef<google.maps.marker.PinElement, PinElementPr
   const markerLib = useImportLibrary('marker');
 
   if (!markerLib?.PinElement) {
+    console.error('PinElement is not available');
     return null;
   }
 

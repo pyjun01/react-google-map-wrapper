@@ -51,8 +51,6 @@ export const AdvancedMarker = forwardRef<google.maps.marker.AdvancedMarkerElemen
       return;
     }
 
-    fragment.current.style.display = 'contents';
-
     const advancedMarker = new markerLib.AdvancedMarkerElement({
       collisionBehavior,
       content: pinElement?.element ?? (children ? fragment.current : content),
