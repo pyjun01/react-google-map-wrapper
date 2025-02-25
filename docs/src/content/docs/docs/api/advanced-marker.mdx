@@ -39,7 +39,12 @@ function MyMap() {
       <AdvancedMarker lat={37.38} lng={-122.03}>
         <img src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' />
       </AdvancedMarker>
-      <AdvancedMarker lat={37.39} lng={-122.05}>
+      <AdvancedMarker lat={37.4} lng={-122.01}>
+        <PinElement>
+          <p className='bg-black text-white whitespace-nowrap'>Home</p>
+        </PinElement>
+      </AdvancedMarker>
+      <AdvancedMarker lat={37.39} lng={-122.05} gmpDraggable>
         <div className='px-5 py-3 rounded bg-[#0af] text-lg text-white'>
           whole new marker content.
         </div>
