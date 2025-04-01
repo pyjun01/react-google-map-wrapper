@@ -10,7 +10,7 @@ export interface InfoWindowEvent {
 }
 
 export interface InfoWindowProps extends Omit<google.maps.InfoWindowOptions, 'content'>, InfoWindowEvent {
-  children?: ReactElement;
+  children?: ReactElement<any>;
   open?: boolean;
   shouldFocus?: boolean;
   content?: ReactElement<unknown> | string | Element | Text | null;
