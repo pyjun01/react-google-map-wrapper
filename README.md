@@ -34,6 +34,8 @@ function App() {
 npm install react-google-map-wrapper # or yarn add react-google-map-wrapper or pnpm add react-google-map-wrapper
 ```
 
+> **If you're using React v18, please install version `1.0.7`.**
+
 ## Documentation
 
 You can find the documentation [on the website.](https://pyjun01.github.io/react-google-map-wrapper)
